@@ -1,0 +1,14 @@
+Index: openssl-1.0.0/Configure
+===================================================================
+--- openssl-1.0.0.orig/Configure
++++ openssl-1.0.0/Configure
+@@ -1673,7 +1673,8 @@ while (<IN>)
+		}
+	elsif	(/^#define\s+ENGINESDIR/)
+		{
+-		my $foo = "$prefix/$libdir/engines";
++		#my $foo = "$prefix/$libdir/engines";
++		my $foo = "/$libdir/engines";
+		$foo =~ s/\\/\\\\/g;
+		print OUT "#define ENGINESDIR \"$foo\"\n";
+		}
