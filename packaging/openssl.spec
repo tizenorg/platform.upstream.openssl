@@ -17,11 +17,6 @@ Source:         http://www.%{name}.org/source/%{name}-%{version}.tar.gz
 # to get mtime of file:
 Source1:        openssl.changes
 Source2:        baselibs.conf
-Patch0:         merge_from_0.9.8k.patch
-Patch1:         openssl-1.0.0-c_rehash-compat.diff
-Patch2:         bug610223.patch
-Patch3:         openssl-ocloexec.patch
-BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 
 %description
 The OpenSSL Project is a collaborative effort to develop a robust,
@@ -135,10 +130,7 @@ Authors:
 
 %prep
 %setup -q 
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
-%patch3
+
 echo "adding/overwriting some entries in the 'table' hash in Configure"
 # $dso_scheme:$shared_target:$shared_cflag:$shared_ldflag:$shared_extension:$ranlib:$arflags
 export DSO_SCHEME='dlfcn:linux-shared:-fPIC::.so.\$(SHLIB_MAJOR).\$(SHLIB_MINOR)::'
@@ -183,7 +175,7 @@ export RPM_OPT_FLAGS
 ./config --test-sanity 
 #
 config_flags="threads shared no-rc5 no-idea \
-enable-camellia \
+enable-camellia enable-md2\
 zlib \
 --prefix=%{_prefix} \
 --libdir=%{_lib} \
@@ -196,12 +188,8 @@ $RPM_OPT_FLAGS -std=gnu99 \
 -DSSL_FORBID_ENULL \
 -D_GNU_SOURCE \
 $(getconf LFS_CFLAGS) \
-%ifnarch hppa
 -Wall \
 -fstack-protector "
-%else
--Wall "
-%endif
 #
 #%{!?do_profiling:%define do_profiling 0}
 #%if %do_profiling
@@ -224,16 +212,11 @@ $(getconf LFS_CFLAGS) \
 #%else
 # OpenSSL relies on uname -m (not good). Thus that little sparc line.
 	./config \
-%ifarch sparc64
-		linux64-sparcv9 \
-%endif
 		$config_flags
 	make depend
 	make
 	LD_LIBRARY_PATH=`pwd` make rehash
-	%ifnarch armv4l
 	LD_LIBRARY_PATH=`pwd` make test
-	%endif
 #%endif
 # show settings
 make TABLE
