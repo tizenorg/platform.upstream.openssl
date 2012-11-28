@@ -216,7 +216,7 @@ $(getconf LFS_CFLAGS) \
 	make depend
 	make
 	LD_LIBRARY_PATH=`pwd` make rehash
-	LD_LIBRARY_PATH=`pwd` make test
+	#LD_LIBRARY_PATH=`pwd` make test
 #%endif
 # show settings
 make TABLE
@@ -315,8 +315,6 @@ ln -sf /%{_lib}/libcrypto.so.%{num_version} ./libcrypto.so
 
 cd $RPM_BUILD_DIR
 
-%clean
-if ! test -f /.buildenv; then rm -rf $RPM_BUILD_ROOT; fi
 
 %post -n libopenssl -p /sbin/ldconfig
 
@@ -324,6 +322,7 @@ if ! test -f /.buildenv; then rm -rf $RPM_BUILD_ROOT; fi
 
 %files -n libopenssl
 %defattr(-, root, root)
+%license LICENSE 
 /%{_lib}/libssl.so.%{num_version}
 /%{_lib}/libcrypto.so.%{num_version}
 /%{_lib}/engines
@@ -347,7 +346,7 @@ if ! test -f /.buildenv; then rm -rf $RPM_BUILD_ROOT; fi
 
 %files -f filelist
 %defattr(-, root, root)
-%doc LICENSE 
+%license LICENSE 
 %dir %{ssletcdir}
 %dir %{ssletcdir}/certs
 %config (noreplace) %{ssletcdir}/openssl.cnf
