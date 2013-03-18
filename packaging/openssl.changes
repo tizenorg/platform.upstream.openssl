@@ -1,3 +1,6 @@
+* Mon Mar 18 2013 Anas Nashif <anas.nashif@intel.com> submit/trunk/20121228.194701@641e3b2
+- Fixed package group
+
 * Wed Nov 28 2012 Anas Nashif <anas.nashif@intel.com> upstream/1.0.1c@bc70029
 - remove patches
 - enable md2
