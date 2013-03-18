@@ -4,14 +4,13 @@ BuildRequires:  ed
 BuildRequires:  pkg-config
 BuildRequires:  zlib-devel
 %define ssletcdir %{_sysconfdir}/ssl
-#%define num_version %(echo "%{version}" | sed -e "s+[a-zA-Z]++g; s+_.*++g")
 %define num_version 1.0.0
 Provides:       ssl
 Version:        1.0.1c
 Release:        0
 Summary:        Secure Sockets and Transport Layer Security
 License:        OpenSSL
-Group:          Productivity/Networking/Security
+Group:          Security/Crypto Libraries
 Url:            http://www.openssl.org/
 Source:         http://www.%{name}.org/source/%{name}-%{version}.tar.gz
 # to get mtime of file:
@@ -34,22 +33,9 @@ Young and Tim J. Hudson. The OpenSSL toolkit is licensed under an
 Apache-style license, which basically means that you are free to get it
 and to use it for commercial and noncommercial purposes.
 
-
-
-Authors:
---------
-    Mark J. Cox <mark@openssl.org>
-    Ralf S. Engelschall <rse@openssl.org>
-    Dr. Stephen Henson <steve@openssl.org>
-    Ben Laurie <ben@openssl.org>
-    Bodo Moeller <bodo@openssl.org>
-    Ulf Moeller <ulf@openssl.org>
-    Holger Reif <holger@openssl.org>
-    Paul C. Sutton <paul@openssl.org>
-
 %package -n libopenssl
 Summary:        Secure Sockets and Transport Layer Security
-Group:          Productivity/Networking/Security
+Group:          Security/Crypto Libraries
 
 %description -n libopenssl
 The OpenSSL Project is a collaborative effort to develop a robust,
@@ -68,21 +54,9 @@ Apache-style license, which basically means that you are free to get it
 and to use it for commercial and noncommercial purposes.
 
 
-
-Authors:
---------
-    Mark J. Cox <mark@openssl.org>
-    Ralf S. Engelschall <rse@openssl.org>
-    Dr. Stephen Henson <steve@openssl.org>
-    Ben Laurie <ben@openssl.org>
-    Bodo Moeller <bodo@openssl.org>
-    Ulf Moeller <ulf@openssl.org>
-    Holger Reif <holger@openssl.org>
-    Paul C. Sutton <paul@openssl.org>
-
 %package -n libopenssl-devel
 Summary:        Include Files and Libraries mandatory for Development
-Group:          Development/Libraries/C and C++
+Group:          Development/Libraries
 Obsoletes:      openssl-devel < %{version}
 Requires:       %name = %version
 Requires:       libopenssl = %{version}
@@ -93,40 +67,14 @@ Provides:       openssl-devel = %{version}
 This package contains all necessary include files and libraries needed
 to develop applications that require these.
 
-
-
-Authors:
---------
-    Mark J. Cox <mark@openssl.org>
-    Ralf S. Engelschall <rse@openssl.org>
-    Dr. Stephen <Henson steve@openssl.org>
-    Ben Laurie <ben@openssl.org>
-    Bodo Moeller <bodo@openssl.org>
-    Ulf Moeller <ulf@openssl.org>
-    Holger Reif <holger@openssl.org>
-    Paul C. Sutton <paul@openssl.org>
-
 %package doc
 Summary:        Additional Package Documentation
-Group:          Productivity/Networking/Security
+Group:          Security/Crypto Libraries
 BuildArch:      noarch
 
 %description doc
 This package contains optional documentation provided in addition to
 this package's base documentation.
-
-
-
-Authors:
---------
-    Mark J. Cox <mark@openssl.org>
-    Ralf S. Engelschall <rse@openssl.org>
-    Dr. Stephen <Henson steve@openssl.org>
-    Ben Laurie <ben@openssl.org>
-    Bodo Moeller <bodo@openssl.org>
-    Ulf Moeller <ulf@openssl.org>
-    Holger Reif <holger@openssl.org>
-    Paul C. Sutton <paul@openssl.org>
 
 %prep
 %setup -q
@@ -166,9 +114,6 @@ CHANGES=`stat --format="%y" %SOURCE1`
 sed -i -e "s|#define DATE \(.*\).LC_ALL.*date.|#define DATE \1$CHANGES|" crypto/Makefile
 
 %build
-%ifarch armv5el armv5tel
-export MACHINE=armv5el
-%endif
 RPM_OPT_FLAGS=$(echo $RPM_OPT_FLAGS | sed -s "s/--param=ssp-buffer-size=32//g")
 export RPM_OPT_FLAGS
 
