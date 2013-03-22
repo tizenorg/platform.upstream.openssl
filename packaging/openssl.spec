@@ -67,6 +67,13 @@ Provides:       openssl-devel = %{version}
 This package contains all necessary include files and libraries needed
 to develop applications that require these.
 
+%package misc
+Summary:        Additional data files and scripts for %{name}
+Group:          Security/Crypto Libraries
+
+%description misc
+Additional data files and scripts for %{name}.
+
 %package doc
 Summary:        Additional Package Documentation
 Group:          Security/Crypto Libraries
@@ -199,7 +206,7 @@ for i in man?/*; do
 	case `basename ${i%.*}` in
 	    asn1parse|ca|config|crl|crl2pkcs7|crypto|dgst|dhparam|dsa|dsaparam|enc|gendsa|genrsa|nseq|openssl|passwd|pkcs12|pkcs7|pkcs8|rand|req|rsa|rsautl|s_client|s_server|smime|spkac|ssl|verify|version|x509)
 		# these are the pages mentioned in openssl(1). They go into the main package.
-		echo %doc %{_mandir}/${i}ssl.gz >> $OLDPWD/filelist;;
+		echo %doc %{_mandir}/${i}ssl.gz >> $OLDPWD/filelist.doc;;
 	    *)
 		# the rest goes into the openssl-doc package.
 		echo %doc %{_mandir}/${i}ssl.gz >> $OLDPWD/filelist.doc;;
@@ -289,7 +296,7 @@ cd $RPM_BUILD_DIR
 %doc doc/* demos
 %doc showciphers.c
 
-%files -f filelist
+%files
 %defattr(-, root, root)
 %license LICENSE
 %dir %{ssletcdir}
@@ -297,8 +304,11 @@ cd $RPM_BUILD_DIR
 %config (noreplace) %{ssletcdir}/openssl.cnf
 %attr(700,root,root) %{ssletcdir}/private
 %dir %{_datadir}/ssl
+%{_bindir}/%{name}
+
+%files misc
 %{_datadir}/ssl/misc
 %{_bindir}/c_rehash
-%{_bindir}/%{name}
+
 
 %changelog
