@@ -16,6 +16,7 @@ Source:         http://www.%{name}.org/source/%{name}-%{version}.tar.gz
 # to get mtime of file:
 Source1:        openssl.changes
 Source2:        baselibs.conf
+Source1001: 	openssl.manifest
 
 %description
 The OpenSSL Project is a collaborative effort to develop a robust,
@@ -85,6 +86,7 @@ this package's base documentation.
 
 %prep
 %setup -q
+cp %{SOURCE1001} .
 
 echo "adding/overwriting some entries in the 'table' hash in Configure"
 # $dso_scheme:$shared_target:$shared_cflag:$shared_ldflag:$shared_extension:$ranlib:$arflags
@@ -273,6 +275,7 @@ cd $RPM_BUILD_DIR
 %postun -n libopenssl -p /sbin/ldconfig
 
 %files -n libopenssl
+%manifest %{name}.manifest
 %defattr(-, root, root)
 %license LICENSE
 /%{_lib}/libssl.so.%{num_version}
@@ -280,6 +283,7 @@ cd $RPM_BUILD_DIR
 /%{_lib}/engines
 
 %files -n libopenssl-devel
+%manifest %{name}.manifest
 %defattr(-, root, root)
 %{_includedir}/%{name}/
 %{_includedir}/ssl
@@ -292,11 +296,13 @@ cd $RPM_BUILD_DIR
 %_libdir/pkgconfig/openssl.pc
 
 %files doc -f filelist.doc
+%manifest %{name}.manifest
 %defattr(-, root, root)
 %doc doc/* demos
 %doc showciphers.c
 
 %files
+%manifest %{name}.manifest
 %defattr(-, root, root)
 %license LICENSE
 %dir %{ssletcdir}
@@ -307,6 +313,7 @@ cd $RPM_BUILD_DIR
 %{_bindir}/%{name}
 
 %files misc
+%manifest %{name}.manifest
 %{_datadir}/ssl/misc
 %{_bindir}/c_rehash
 
