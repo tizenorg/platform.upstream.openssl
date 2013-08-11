@@ -1,3 +1,9 @@
+* Sun Aug 11 2013 Ryan Ware <ware@linux.intel.com> accepted/tizen/20130710.215332@b035ac7
+- Update version in spec file.
+- Update to OpenSSL 1.0.1e from 1.0.1c.
+- resetting manifest requested domain to floor
+- Fixed package groups
+
 * Fri Mar 22 2013 Anas Nashif <anas.nashif@intel.com> submit/trunk/20130318.194800@d92acdb
 - Fixed package groups
 
