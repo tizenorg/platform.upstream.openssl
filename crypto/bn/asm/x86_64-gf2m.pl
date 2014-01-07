@@ -31,8 +31,12 @@ $0 =~ m/(.*[\/\\])[^\/\\]+$/; $dir=$1;
 ( $xlate="${dir}../../perlasm/x86_64-xlate.pl" and -f $xlate) or
 die "can't locate x86_64-xlate.pl";
 
+<<<<<<< HEAD
 open OUT,"| \"$^X\" $xlate $flavour $output";
 *STDOUT=*OUT;
+=======
+open STDOUT,"| \"$^X\" $xlate $flavour $output";
+>>>>>>> ecbc968bbf2ed3b1d1fb9cb3576a53c7ae52a0b4
 
 ($lo,$hi)=("%rax","%rdx");	$a=$lo;
 ($i0,$i1)=("%rsi","%rdi");
