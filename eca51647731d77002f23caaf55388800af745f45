@@ -1,0 +1,10 @@
+Code-Review+2: Ryan Ware <ware@linux.intel.com>
+Verified+1: Ryan Ware <ware@linux.intel.com>
+Code-Review+2: Michael Demeter <michael.demeter@intel.com>
+Code-Review+1: Philippe Coval <philippe.coval@open.eurogiciel.org>
+Code-Review+1: Kévin THIERRY <kevin.thierry@open.eurogiciel.org>
+Submitted-by: Ryan Ware <ware@linux.intel.com>
+Submitted-at: Tue, 25 Mar 2014 08:59:35 -0700
+Reviewed-on: https://review.tizen.org/gerrit/17968
+Project: platform/upstream/openssl
+Branch: refs/heads/tizen
