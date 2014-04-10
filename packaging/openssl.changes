@@ -1,3 +1,6 @@
+* Thu Apr 10 2014 Michael Demeter <michael.demeter@intel.com> upstream/1.0.1g@357db8b
+- Move openssl version to 1.0.1g for CVE-2014-160 (Heartbleed)
+
 * Fri Mar 22 2013 Anas Nashif <anas.nashif@intel.com> submit/trunk/20130318.194800@d92acdb
 - Fixed package groups
 
