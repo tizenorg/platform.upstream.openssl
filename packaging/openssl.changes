@@ -1,3 +1,13 @@
+* Tue Jun 17 2014 John L. Whiteman <john.l.whiteman@intel.com> submit/tizen/20140617.224200-1-g4f05561
+- Move openssl version from 1.0.1g to 1.0.1h for CVE-2014-0224, CVE-2014-0221, CVE-2014-0195, CVE-2014-0198, CVE-2010-5298, CVE-2014-3470 fixes
+
+* Tue Jun 17 2014 John L. Whiteman <john.l.whiteman@intel.com> submit/tizen/20140617.224200-1-g4f05561
+- Bug-Tizen: TC-1144 Bug: https://bugs.tizen.org/jira/browse/TC-1144?filter=-1 Need to revert 42201435ef5da3f814283009406b4b667b8900f8 then update upstream with correct version.
+- Move openssl version from 1.0.1g to 1.0.1h for CVE-2014-0224, CVE-2014-0221, CVE-2014-0195, CVE-2014-0198, CVE-2010-5298, CVE-2014-3470 fixes
+
+* Tue Jun 17 2014 John L. Whiteman <john.l.whiteman@intel.com> upstream/1.0.1g-16-g70eb88d
+- Move openssl version from 1.0.1g to 1.0.1h for CVE-2014-0224, CVE-2014-0221, CVE-2014-0195, CVE-2014-0198, CVE-2010-5298, CVE-2014-3470 fixes
+
 * Thu Apr 10 2014 Michael Demeter <michael.demeter@intel.com> upstream/1.0.1g@357db8b
 - Move openssl version to 1.0.1g for CVE-2014-160 (Heartbleed)
 
