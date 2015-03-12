@@ -2,7 +2,7 @@
 %define libmaj 1
 %define libmin 0
 %define librel 1
-%define librev f
+%define librev l
 Release: 1
 
 %define openssldir /var/ssl
@@ -10,7 +10,7 @@ Release: 1
 Summary: Secure Sockets Layer and cryptography libraries and tools
 Name: openssl
 #Version: %{libmaj}.%{libmin}.%{librel}
-Version: 1.0.1j
+Version: 1.0.1l
 Source0: ftp://ftp.openssl.org/source/%{name}-%{version}.tar.gz
 License: OpenSSL
 Group: System Environment/Libraries
