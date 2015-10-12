@@ -2993,14 +2993,12 @@ void ssl_clear_cipher_ctx(SSL *s)
 }
 
 X509 *SSL_get_certificate(const SSL *s)
-	{
-	if (s->server)
-		return(ssl_get_server_send_cert(s));
-	else if (s->cert != NULL)
-		return(s->cert->key->x509);
-	else
-		return(NULL);
-	}
+{
+    if (s->cert != NULL)
+        return (s->cert->key->x509);
+    else
+        return (NULL);
+}
 
 EVP_PKEY *SSL_get_privatekey(const SSL *s)
 {
