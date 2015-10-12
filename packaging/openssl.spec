@@ -6,7 +6,7 @@ BuildRequires:  zlib-devel
 %define ssletcdir %{_sysconfdir}/ssl
 %define num_version 1.0.0
 Provides:       ssl
-Version:        1.0.1p
+Version:        1.0.2d
 Release:        0
 Summary:        Secure Sockets and Transport Layer Security
 License:        OpenSSL
