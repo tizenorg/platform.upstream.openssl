@@ -258,18 +258,6 @@ cat AVAILABLE_CIPHERS
 # Do not install demo scripts executable under /usr/share/doc
 find demos -type f -perm /111 -exec chmod 644 {} \;
 
-#process openssllib
-mkdir $RPM_BUILD_ROOT/%{_lib}
-mv $RPM_BUILD_ROOT%{_libdir}/libssl.so.%{num_version} $RPM_BUILD_ROOT/%{_lib}/
-mv $RPM_BUILD_ROOT%{_libdir}/libcrypto.so.%{num_version} $RPM_BUILD_ROOT/%{_lib}/
-mv $RPM_BUILD_ROOT%{_libdir}/engines $RPM_BUILD_ROOT/%{_lib}/
-cd $RPM_BUILD_ROOT%{_libdir}/
-ln -sf /%{_lib}/libssl.so.%{num_version} ./libssl.so
-ln -sf /%{_lib}/libcrypto.so.%{num_version} ./libcrypto.so
-
-cd $RPM_BUILD_DIR
-
-
 %post -n libopenssl -p /sbin/ldconfig
 
 %postun -n libopenssl -p /sbin/ldconfig
@@ -278,9 +266,9 @@ cd $RPM_BUILD_DIR
 %manifest %{name}.manifest
 %defattr(-, root, root)
 %license LICENSE
-/%{_lib}/libssl.so.%{num_version}
-/%{_lib}/libcrypto.so.%{num_version}
-/%{_lib}/engines
+%{_libdir}/libssl.so.%{num_version}
+%{_libdir}/libcrypto.so.%{num_version}
+%{_libdir}/engines
 
 %files -n libopenssl-devel
 %manifest %{name}.manifest
