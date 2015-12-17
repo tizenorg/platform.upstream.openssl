@@ -181,7 +181,6 @@ grep -B1 -A22 "^\*\*\* $PLATFORM$" TABLE
 %install
 rm -rf $RPM_BUILD_ROOT
 make MANDIR=%{_mandir} INSTALL_PREFIX=$RPM_BUILD_ROOT install
-install -d -m755 $RPM_BUILD_ROOT%{ssletcdir}/certs
 ln -sf ./%{name} $RPM_BUILD_ROOT/%{_includedir}/ssl
 mkdir $RPM_BUILD_ROOT/%{_datadir}/ssl
 mv $RPM_BUILD_ROOT/%{ssletcdir}/misc $RPM_BUILD_ROOT/%{_datadir}/ssl/
@@ -294,7 +293,6 @@ find demos -type f -perm /111 -exec chmod 644 {} \;
 %defattr(-, root, root)
 %license LICENSE
 %dir %{ssletcdir}
-%dir %{ssletcdir}/certs
 %config (noreplace) %{ssletcdir}/openssl.cnf
 %attr(700,root,root) %{ssletcdir}/private
 %dir %{_datadir}/ssl
