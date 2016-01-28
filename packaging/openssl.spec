@@ -128,7 +128,7 @@ export RPM_OPT_FLAGS
 
 ./config --test-sanity
 #
-config_flags="threads shared no-rc5 no-idea \
+config_flags="threads shared no-rc5 no-idea no-asm \
 enable-camellia enable-md2 \
 zlib \
 --prefix=%{_prefix} \
