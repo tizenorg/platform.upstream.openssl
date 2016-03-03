@@ -9,7 +9,7 @@ Provides:       ssl
 Version:        1.0.2e
 Release:        0
 Summary:        Secure Sockets and Transport Layer Security
-License:        OpenSSL
+License:        OpenSSL and BSD-2.0 and Apache-2.0
 Group:          Security/Crypto Libraries
 Url:            http://www.openssl.org/
 Source:         http://www.%{name}.org/source/%{name}-%{version}.tar.gz
