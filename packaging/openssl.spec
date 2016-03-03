@@ -265,6 +265,8 @@ find demos -type f -perm /111 -exec chmod 644 {} \;
 %manifest %{name}.manifest
 %defattr(-, root, root)
 %license LICENSE
+%license LICENSE.Apache-2.0
+%license LICENSE.BSD-2.0
 %{_libdir}/libssl.so.%{num_version}
 %{_libdir}/libcrypto.so.%{num_version}
 %{_libdir}/engines
