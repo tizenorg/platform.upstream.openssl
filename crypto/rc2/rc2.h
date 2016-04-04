@@ -82,17 +82,17 @@ typedef struct rc2_key_st {
 void private_RC2_set_key(RC2_KEY *key, int len, const unsigned char *data,
                          int bits);
 # endif
-void RC2_set_key(RC2_KEY *key, int len, const unsigned char *data, int bits);
-void RC2_ecb_encrypt(const unsigned char *in, unsigned char *out,
+__attribute__ ((visibility ("default"))) void RC2_set_key(RC2_KEY *key, int len, const unsigned char *data, int bits);
+__attribute__ ((visibility ("default"))) void RC2_ecb_encrypt(const unsigned char *in, unsigned char *out,
                      RC2_KEY *key, int enc);
-void RC2_encrypt(unsigned long *data, RC2_KEY *key);
-void RC2_decrypt(unsigned long *data, RC2_KEY *key);
-void RC2_cbc_encrypt(const unsigned char *in, unsigned char *out, long length,
+__attribute__ ((visibility ("default"))) void RC2_encrypt(unsigned long *data, RC2_KEY *key);
+__attribute__ ((visibility ("default"))) void RC2_decrypt(unsigned long *data, RC2_KEY *key);
+__attribute__ ((visibility ("default"))) void RC2_cbc_encrypt(const unsigned char *in, unsigned char *out, long length,
                      RC2_KEY *ks, unsigned char *iv, int enc);
-void RC2_cfb64_encrypt(const unsigned char *in, unsigned char *out,
+__attribute__ ((visibility ("default"))) void RC2_cfb64_encrypt(const unsigned char *in, unsigned char *out,
                        long length, RC2_KEY *schedule, unsigned char *ivec,
                        int *num, int enc);
-void RC2_ofb64_encrypt(const unsigned char *in, unsigned char *out,
+__attribute__ ((visibility ("default"))) void RC2_ofb64_encrypt(const unsigned char *in, unsigned char *out,
                        long length, RC2_KEY *schedule, unsigned char *ivec,
                        int *num);
 

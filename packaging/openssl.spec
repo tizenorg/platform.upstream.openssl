@@ -123,6 +123,9 @@ CHANGES=`stat --format="%y" %SOURCE1`
 sed -i -e "s|#define DATE \(.*\).LC_ALL.*date.|#define DATE \1$CHANGES|" crypto/Makefile
 
 %build
+export CFLAGS+=" -fvisibility=hidden"
+  export CXXFLAGS+=" -fvisibility=hidden"
+  
 RPM_OPT_FLAGS=$(echo $RPM_OPT_FLAGS | sed -s "s/--param=ssp-buffer-size=32//g")
 export RPM_OPT_FLAGS
 

@@ -203,7 +203,7 @@ struct ocsp_responder_id_st {
 };
 
 DECLARE_STACK_OF(OCSP_RESPID)
-DECLARE_ASN1_FUNCTIONS(OCSP_RESPID)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_ASN1_FUNCTIONS(OCSP_RESPID)
 
 /*-  KeyHash ::= OCTET STRING --SHA-1 hash of responder's public key
  *                            --(excluding the tag and length fields)
@@ -392,181 +392,181 @@ typedef struct ocsp_service_locator_st {
                 (OCSP_CERTSTATUS*)ASN1_dup((int(*)())i2d_OCSP_CERTSTATUS,\
                 (char *(*)())d2i_OCSP_CERTSTATUS,(char *)(cs))
 
-OCSP_CERTID *OCSP_CERTID_dup(OCSP_CERTID *id);
+__attribute__ ((visibility ("default"))) OCSP_CERTID *OCSP_CERTID_dup(OCSP_CERTID *id);
 
-OCSP_RESPONSE *OCSP_sendreq_bio(BIO *b, const char *path, OCSP_REQUEST *req);
-OCSP_REQ_CTX *OCSP_sendreq_new(BIO *io, const char *path, OCSP_REQUEST *req,
+__attribute__ ((visibility ("default"))) OCSP_RESPONSE *OCSP_sendreq_bio(BIO *b, const char *path, OCSP_REQUEST *req);
+__attribute__ ((visibility ("default"))) OCSP_REQ_CTX *OCSP_sendreq_new(BIO *io, const char *path, OCSP_REQUEST *req,
                                int maxline);
-int OCSP_REQ_CTX_nbio(OCSP_REQ_CTX *rctx);
-int OCSP_sendreq_nbio(OCSP_RESPONSE **presp, OCSP_REQ_CTX *rctx);
-OCSP_REQ_CTX *OCSP_REQ_CTX_new(BIO *io, int maxline);
-void OCSP_REQ_CTX_free(OCSP_REQ_CTX *rctx);
-void OCSP_set_max_response_length(OCSP_REQ_CTX *rctx, unsigned long len);
-int OCSP_REQ_CTX_i2d(OCSP_REQ_CTX *rctx, const ASN1_ITEM *it,
+__attribute__ ((visibility ("default"))) int OCSP_REQ_CTX_nbio(OCSP_REQ_CTX *rctx);
+__attribute__ ((visibility ("default"))) int OCSP_sendreq_nbio(OCSP_RESPONSE **presp, OCSP_REQ_CTX *rctx);
+__attribute__ ((visibility ("default"))) OCSP_REQ_CTX *OCSP_REQ_CTX_new(BIO *io, int maxline);
+__attribute__ ((visibility ("default"))) void OCSP_REQ_CTX_free(OCSP_REQ_CTX *rctx);
+__attribute__ ((visibility ("default"))) void OCSP_set_max_response_length(OCSP_REQ_CTX *rctx, unsigned long len);
+__attribute__ ((visibility ("default"))) int OCSP_REQ_CTX_i2d(OCSP_REQ_CTX *rctx, const ASN1_ITEM *it,
                      ASN1_VALUE *val);
-int OCSP_REQ_CTX_nbio_d2i(OCSP_REQ_CTX *rctx, ASN1_VALUE **pval,
+__attribute__ ((visibility ("default"))) int OCSP_REQ_CTX_nbio_d2i(OCSP_REQ_CTX *rctx, ASN1_VALUE **pval,
                           const ASN1_ITEM *it);
-BIO *OCSP_REQ_CTX_get0_mem_bio(OCSP_REQ_CTX *rctx);
-int OCSP_REQ_CTX_i2d(OCSP_REQ_CTX *rctx, const ASN1_ITEM *it,
+__attribute__ ((visibility ("default"))) BIO *OCSP_REQ_CTX_get0_mem_bio(OCSP_REQ_CTX *rctx);
+__attribute__ ((visibility ("default"))) int OCSP_REQ_CTX_i2d(OCSP_REQ_CTX *rctx, const ASN1_ITEM *it,
                      ASN1_VALUE *val);
-int OCSP_REQ_CTX_http(OCSP_REQ_CTX *rctx, const char *op, const char *path);
-int OCSP_REQ_CTX_set1_req(OCSP_REQ_CTX *rctx, OCSP_REQUEST *req);
-int OCSP_REQ_CTX_add1_header(OCSP_REQ_CTX *rctx,
+__attribute__ ((visibility ("default"))) int OCSP_REQ_CTX_http(OCSP_REQ_CTX *rctx, const char *op, const char *path);
+__attribute__ ((visibility ("default"))) int OCSP_REQ_CTX_set1_req(OCSP_REQ_CTX *rctx, OCSP_REQUEST *req);
+__attribute__ ((visibility ("default"))) int OCSP_REQ_CTX_add1_header(OCSP_REQ_CTX *rctx,
                              const char *name, const char *value);
 
-OCSP_CERTID *OCSP_cert_to_id(const EVP_MD *dgst, X509 *subject, X509 *issuer);
+__attribute__ ((visibility ("default"))) OCSP_CERTID *OCSP_cert_to_id(const EVP_MD *dgst, X509 *subject, X509 *issuer);
 
-OCSP_CERTID *OCSP_cert_id_new(const EVP_MD *dgst,
+__attribute__ ((visibility ("default"))) OCSP_CERTID *OCSP_cert_id_new(const EVP_MD *dgst,
                               X509_NAME *issuerName,
                               ASN1_BIT_STRING *issuerKey,
                               ASN1_INTEGER *serialNumber);
 
-OCSP_ONEREQ *OCSP_request_add0_id(OCSP_REQUEST *req, OCSP_CERTID *cid);
+__attribute__ ((visibility ("default"))) OCSP_ONEREQ *OCSP_request_add0_id(OCSP_REQUEST *req, OCSP_CERTID *cid);
 
-int OCSP_request_add1_nonce(OCSP_REQUEST *req, unsigned char *val, int len);
-int OCSP_basic_add1_nonce(OCSP_BASICRESP *resp, unsigned char *val, int len);
-int OCSP_check_nonce(OCSP_REQUEST *req, OCSP_BASICRESP *bs);
-int OCSP_copy_nonce(OCSP_BASICRESP *resp, OCSP_REQUEST *req);
+__attribute__ ((visibility ("default"))) int OCSP_request_add1_nonce(OCSP_REQUEST *req, unsigned char *val, int len);
+__attribute__ ((visibility ("default"))) int OCSP_basic_add1_nonce(OCSP_BASICRESP *resp, unsigned char *val, int len);
+__attribute__ ((visibility ("default"))) int OCSP_check_nonce(OCSP_REQUEST *req, OCSP_BASICRESP *bs);
+__attribute__ ((visibility ("default"))) int OCSP_copy_nonce(OCSP_BASICRESP *resp, OCSP_REQUEST *req);
 
-int OCSP_request_set1_name(OCSP_REQUEST *req, X509_NAME *nm);
-int OCSP_request_add1_cert(OCSP_REQUEST *req, X509 *cert);
+__attribute__ ((visibility ("default"))) int OCSP_request_set1_name(OCSP_REQUEST *req, X509_NAME *nm);
+__attribute__ ((visibility ("default"))) int OCSP_request_add1_cert(OCSP_REQUEST *req, X509 *cert);
 
-int OCSP_request_sign(OCSP_REQUEST *req,
+__attribute__ ((visibility ("default"))) int OCSP_request_sign(OCSP_REQUEST *req,
                       X509 *signer,
                       EVP_PKEY *key,
                       const EVP_MD *dgst,
                       STACK_OF(X509) *certs, unsigned long flags);
 
-int OCSP_response_status(OCSP_RESPONSE *resp);
-OCSP_BASICRESP *OCSP_response_get1_basic(OCSP_RESPONSE *resp);
+__attribute__ ((visibility ("default"))) int OCSP_response_status(OCSP_RESPONSE *resp);
+__attribute__ ((visibility ("default"))) OCSP_BASICRESP *OCSP_response_get1_basic(OCSP_RESPONSE *resp);
 
-int OCSP_resp_count(OCSP_BASICRESP *bs);
-OCSP_SINGLERESP *OCSP_resp_get0(OCSP_BASICRESP *bs, int idx);
-int OCSP_resp_find(OCSP_BASICRESP *bs, OCSP_CERTID *id, int last);
-int OCSP_single_get0_status(OCSP_SINGLERESP *single, int *reason,
+__attribute__ ((visibility ("default"))) int OCSP_resp_count(OCSP_BASICRESP *bs);
+__attribute__ ((visibility ("default"))) OCSP_SINGLERESP *OCSP_resp_get0(OCSP_BASICRESP *bs, int idx);
+__attribute__ ((visibility ("default"))) int OCSP_resp_find(OCSP_BASICRESP *bs, OCSP_CERTID *id, int last);
+__attribute__ ((visibility ("default"))) int OCSP_single_get0_status(OCSP_SINGLERESP *single, int *reason,
                             ASN1_GENERALIZEDTIME **revtime,
                             ASN1_GENERALIZEDTIME **thisupd,
                             ASN1_GENERALIZEDTIME **nextupd);
-int OCSP_resp_find_status(OCSP_BASICRESP *bs, OCSP_CERTID *id, int *status,
+__attribute__ ((visibility ("default"))) int OCSP_resp_find_status(OCSP_BASICRESP *bs, OCSP_CERTID *id, int *status,
                           int *reason,
                           ASN1_GENERALIZEDTIME **revtime,
                           ASN1_GENERALIZEDTIME **thisupd,
                           ASN1_GENERALIZEDTIME **nextupd);
-int OCSP_check_validity(ASN1_GENERALIZEDTIME *thisupd,
+__attribute__ ((visibility ("default"))) int OCSP_check_validity(ASN1_GENERALIZEDTIME *thisupd,
                         ASN1_GENERALIZEDTIME *nextupd, long sec, long maxsec);
 
-int OCSP_request_verify(OCSP_REQUEST *req, STACK_OF(X509) *certs,
+__attribute__ ((visibility ("default"))) int OCSP_request_verify(OCSP_REQUEST *req, STACK_OF(X509) *certs,
                         X509_STORE *store, unsigned long flags);
 
-int OCSP_parse_url(const char *url, char **phost, char **pport, char **ppath,
+__attribute__ ((visibility ("default"))) int OCSP_parse_url(const char *url, char **phost, char **pport, char **ppath,
                    int *pssl);
 
-int OCSP_id_issuer_cmp(OCSP_CERTID *a, OCSP_CERTID *b);
-int OCSP_id_cmp(OCSP_CERTID *a, OCSP_CERTID *b);
+__attribute__ ((visibility ("default"))) int OCSP_id_issuer_cmp(OCSP_CERTID *a, OCSP_CERTID *b);
+__attribute__ ((visibility ("default"))) int OCSP_id_cmp(OCSP_CERTID *a, OCSP_CERTID *b);
 
-int OCSP_request_onereq_count(OCSP_REQUEST *req);
-OCSP_ONEREQ *OCSP_request_onereq_get0(OCSP_REQUEST *req, int i);
-OCSP_CERTID *OCSP_onereq_get0_id(OCSP_ONEREQ *one);
-int OCSP_id_get0_info(ASN1_OCTET_STRING **piNameHash, ASN1_OBJECT **pmd,
+__attribute__ ((visibility ("default"))) int OCSP_request_onereq_count(OCSP_REQUEST *req);
+__attribute__ ((visibility ("default"))) OCSP_ONEREQ *OCSP_request_onereq_get0(OCSP_REQUEST *req, int i);
+__attribute__ ((visibility ("default"))) OCSP_CERTID *OCSP_onereq_get0_id(OCSP_ONEREQ *one);
+__attribute__ ((visibility ("default"))) int OCSP_id_get0_info(ASN1_OCTET_STRING **piNameHash, ASN1_OBJECT **pmd,
                       ASN1_OCTET_STRING **pikeyHash,
                       ASN1_INTEGER **pserial, OCSP_CERTID *cid);
-int OCSP_request_is_signed(OCSP_REQUEST *req);
-OCSP_RESPONSE *OCSP_response_create(int status, OCSP_BASICRESP *bs);
-OCSP_SINGLERESP *OCSP_basic_add1_status(OCSP_BASICRESP *rsp,
+__attribute__ ((visibility ("default"))) int OCSP_request_is_signed(OCSP_REQUEST *req);
+__attribute__ ((visibility ("default"))) OCSP_RESPONSE *OCSP_response_create(int status, OCSP_BASICRESP *bs);
+__attribute__ ((visibility ("default"))) OCSP_SINGLERESP *OCSP_basic_add1_status(OCSP_BASICRESP *rsp,
                                         OCSP_CERTID *cid,
                                         int status, int reason,
                                         ASN1_TIME *revtime,
                                         ASN1_TIME *thisupd,
                                         ASN1_TIME *nextupd);
-int OCSP_basic_add1_cert(OCSP_BASICRESP *resp, X509 *cert);
-int OCSP_basic_sign(OCSP_BASICRESP *brsp,
+__attribute__ ((visibility ("default"))) int OCSP_basic_add1_cert(OCSP_BASICRESP *resp, X509 *cert);
+__attribute__ ((visibility ("default"))) int OCSP_basic_sign(OCSP_BASICRESP *brsp,
                     X509 *signer, EVP_PKEY *key, const EVP_MD *dgst,
                     STACK_OF(X509) *certs, unsigned long flags);
 
-X509_EXTENSION *OCSP_crlID_new(char *url, long *n, char *tim);
+__attribute__ ((visibility ("default"))) X509_EXTENSION *OCSP_crlID_new(char *url, long *n, char *tim);
 
-X509_EXTENSION *OCSP_accept_responses_new(char **oids);
+__attribute__ ((visibility ("default"))) X509_EXTENSION *OCSP_accept_responses_new(char **oids);
 
-X509_EXTENSION *OCSP_archive_cutoff_new(char *tim);
+__attribute__ ((visibility ("default"))) X509_EXTENSION *OCSP_archive_cutoff_new(char *tim);
 
-X509_EXTENSION *OCSP_url_svcloc_new(X509_NAME *issuer, char **urls);
+__attribute__ ((visibility ("default"))) X509_EXTENSION *OCSP_url_svcloc_new(X509_NAME *issuer, char **urls);
 
-int OCSP_REQUEST_get_ext_count(OCSP_REQUEST *x);
-int OCSP_REQUEST_get_ext_by_NID(OCSP_REQUEST *x, int nid, int lastpos);
-int OCSP_REQUEST_get_ext_by_OBJ(OCSP_REQUEST *x, ASN1_OBJECT *obj,
+__attribute__ ((visibility ("default"))) int OCSP_REQUEST_get_ext_count(OCSP_REQUEST *x);
+__attribute__ ((visibility ("default"))) int OCSP_REQUEST_get_ext_by_NID(OCSP_REQUEST *x, int nid, int lastpos);
+__attribute__ ((visibility ("default"))) int OCSP_REQUEST_get_ext_by_OBJ(OCSP_REQUEST *x, ASN1_OBJECT *obj,
                                 int lastpos);
-int OCSP_REQUEST_get_ext_by_critical(OCSP_REQUEST *x, int crit, int lastpos);
-X509_EXTENSION *OCSP_REQUEST_get_ext(OCSP_REQUEST *x, int loc);
-X509_EXTENSION *OCSP_REQUEST_delete_ext(OCSP_REQUEST *x, int loc);
-void *OCSP_REQUEST_get1_ext_d2i(OCSP_REQUEST *x, int nid, int *crit,
+__attribute__ ((visibility ("default"))) int OCSP_REQUEST_get_ext_by_critical(OCSP_REQUEST *x, int crit, int lastpos);
+__attribute__ ((visibility ("default"))) X509_EXTENSION *OCSP_REQUEST_get_ext(OCSP_REQUEST *x, int loc);
+__attribute__ ((visibility ("default"))) X509_EXTENSION *OCSP_REQUEST_delete_ext(OCSP_REQUEST *x, int loc);
+__attribute__ ((visibility ("default"))) void *OCSP_REQUEST_get1_ext_d2i(OCSP_REQUEST *x, int nid, int *crit,
                                 int *idx);
-int OCSP_REQUEST_add1_ext_i2d(OCSP_REQUEST *x, int nid, void *value, int crit,
+__attribute__ ((visibility ("default"))) int OCSP_REQUEST_add1_ext_i2d(OCSP_REQUEST *x, int nid, void *value, int crit,
                               unsigned long flags);
-int OCSP_REQUEST_add_ext(OCSP_REQUEST *x, X509_EXTENSION *ex, int loc);
+__attribute__ ((visibility ("default"))) int OCSP_REQUEST_add_ext(OCSP_REQUEST *x, X509_EXTENSION *ex, int loc);
 
-int OCSP_ONEREQ_get_ext_count(OCSP_ONEREQ *x);
-int OCSP_ONEREQ_get_ext_by_NID(OCSP_ONEREQ *x, int nid, int lastpos);
-int OCSP_ONEREQ_get_ext_by_OBJ(OCSP_ONEREQ *x, ASN1_OBJECT *obj, int lastpos);
-int OCSP_ONEREQ_get_ext_by_critical(OCSP_ONEREQ *x, int crit, int lastpos);
-X509_EXTENSION *OCSP_ONEREQ_get_ext(OCSP_ONEREQ *x, int loc);
-X509_EXTENSION *OCSP_ONEREQ_delete_ext(OCSP_ONEREQ *x, int loc);
-void *OCSP_ONEREQ_get1_ext_d2i(OCSP_ONEREQ *x, int nid, int *crit, int *idx);
-int OCSP_ONEREQ_add1_ext_i2d(OCSP_ONEREQ *x, int nid, void *value, int crit,
+__attribute__ ((visibility ("default"))) int OCSP_ONEREQ_get_ext_count(OCSP_ONEREQ *x);
+__attribute__ ((visibility ("default"))) int OCSP_ONEREQ_get_ext_by_NID(OCSP_ONEREQ *x, int nid, int lastpos);
+__attribute__ ((visibility ("default"))) int OCSP_ONEREQ_get_ext_by_OBJ(OCSP_ONEREQ *x, ASN1_OBJECT *obj, int lastpos);
+__attribute__ ((visibility ("default"))) int OCSP_ONEREQ_get_ext_by_critical(OCSP_ONEREQ *x, int crit, int lastpos);
+__attribute__ ((visibility ("default"))) X509_EXTENSION *OCSP_ONEREQ_get_ext(OCSP_ONEREQ *x, int loc);
+__attribute__ ((visibility ("default"))) X509_EXTENSION *OCSP_ONEREQ_delete_ext(OCSP_ONEREQ *x, int loc);
+__attribute__ ((visibility ("default"))) void *OCSP_ONEREQ_get1_ext_d2i(OCSP_ONEREQ *x, int nid, int *crit, int *idx);
+__attribute__ ((visibility ("default"))) int OCSP_ONEREQ_add1_ext_i2d(OCSP_ONEREQ *x, int nid, void *value, int crit,
                              unsigned long flags);
-int OCSP_ONEREQ_add_ext(OCSP_ONEREQ *x, X509_EXTENSION *ex, int loc);
+__attribute__ ((visibility ("default"))) int OCSP_ONEREQ_add_ext(OCSP_ONEREQ *x, X509_EXTENSION *ex, int loc);
 
-int OCSP_BASICRESP_get_ext_count(OCSP_BASICRESP *x);
-int OCSP_BASICRESP_get_ext_by_NID(OCSP_BASICRESP *x, int nid, int lastpos);
-int OCSP_BASICRESP_get_ext_by_OBJ(OCSP_BASICRESP *x, ASN1_OBJECT *obj,
+__attribute__ ((visibility ("default"))) int OCSP_BASICRESP_get_ext_count(OCSP_BASICRESP *x);
+__attribute__ ((visibility ("default"))) int OCSP_BASICRESP_get_ext_by_NID(OCSP_BASICRESP *x, int nid, int lastpos);
+__attribute__ ((visibility ("default"))) int OCSP_BASICRESP_get_ext_by_OBJ(OCSP_BASICRESP *x, ASN1_OBJECT *obj,
                                   int lastpos);
-int OCSP_BASICRESP_get_ext_by_critical(OCSP_BASICRESP *x, int crit,
+__attribute__ ((visibility ("default"))) int OCSP_BASICRESP_get_ext_by_critical(OCSP_BASICRESP *x, int crit,
                                        int lastpos);
-X509_EXTENSION *OCSP_BASICRESP_get_ext(OCSP_BASICRESP *x, int loc);
-X509_EXTENSION *OCSP_BASICRESP_delete_ext(OCSP_BASICRESP *x, int loc);
-void *OCSP_BASICRESP_get1_ext_d2i(OCSP_BASICRESP *x, int nid, int *crit,
+__attribute__ ((visibility ("default"))) X509_EXTENSION *OCSP_BASICRESP_get_ext(OCSP_BASICRESP *x, int loc);
+__attribute__ ((visibility ("default"))) X509_EXTENSION *OCSP_BASICRESP_delete_ext(OCSP_BASICRESP *x, int loc);
+__attribute__ ((visibility ("default"))) void *OCSP_BASICRESP_get1_ext_d2i(OCSP_BASICRESP *x, int nid, int *crit,
                                   int *idx);
-int OCSP_BASICRESP_add1_ext_i2d(OCSP_BASICRESP *x, int nid, void *value,
+__attribute__ ((visibility ("default"))) int OCSP_BASICRESP_add1_ext_i2d(OCSP_BASICRESP *x, int nid, void *value,
                                 int crit, unsigned long flags);
-int OCSP_BASICRESP_add_ext(OCSP_BASICRESP *x, X509_EXTENSION *ex, int loc);
+__attribute__ ((visibility ("default"))) int OCSP_BASICRESP_add_ext(OCSP_BASICRESP *x, X509_EXTENSION *ex, int loc);
 
-int OCSP_SINGLERESP_get_ext_count(OCSP_SINGLERESP *x);
-int OCSP_SINGLERESP_get_ext_by_NID(OCSP_SINGLERESP *x, int nid, int lastpos);
-int OCSP_SINGLERESP_get_ext_by_OBJ(OCSP_SINGLERESP *x, ASN1_OBJECT *obj,
+__attribute__ ((visibility ("default"))) int OCSP_SINGLERESP_get_ext_count(OCSP_SINGLERESP *x);
+__attribute__ ((visibility ("default"))) int OCSP_SINGLERESP_get_ext_by_NID(OCSP_SINGLERESP *x, int nid, int lastpos);
+__attribute__ ((visibility ("default"))) int OCSP_SINGLERESP_get_ext_by_OBJ(OCSP_SINGLERESP *x, ASN1_OBJECT *obj,
                                    int lastpos);
-int OCSP_SINGLERESP_get_ext_by_critical(OCSP_SINGLERESP *x, int crit,
+__attribute__ ((visibility ("default"))) int OCSP_SINGLERESP_get_ext_by_critical(OCSP_SINGLERESP *x, int crit,
                                         int lastpos);
-X509_EXTENSION *OCSP_SINGLERESP_get_ext(OCSP_SINGLERESP *x, int loc);
-X509_EXTENSION *OCSP_SINGLERESP_delete_ext(OCSP_SINGLERESP *x, int loc);
-void *OCSP_SINGLERESP_get1_ext_d2i(OCSP_SINGLERESP *x, int nid, int *crit,
+__attribute__ ((visibility ("default"))) X509_EXTENSION *OCSP_SINGLERESP_get_ext(OCSP_SINGLERESP *x, int loc);
+__attribute__ ((visibility ("default"))) X509_EXTENSION *OCSP_SINGLERESP_delete_ext(OCSP_SINGLERESP *x, int loc);
+__attribute__ ((visibility ("default"))) void *OCSP_SINGLERESP_get1_ext_d2i(OCSP_SINGLERESP *x, int nid, int *crit,
                                    int *idx);
-int OCSP_SINGLERESP_add1_ext_i2d(OCSP_SINGLERESP *x, int nid, void *value,
+__attribute__ ((visibility ("default"))) int OCSP_SINGLERESP_add1_ext_i2d(OCSP_SINGLERESP *x, int nid, void *value,
                                  int crit, unsigned long flags);
-int OCSP_SINGLERESP_add_ext(OCSP_SINGLERESP *x, X509_EXTENSION *ex, int loc);
+__attribute__ ((visibility ("default"))) int OCSP_SINGLERESP_add_ext(OCSP_SINGLERESP *x, X509_EXTENSION *ex, int loc);
 
-DECLARE_ASN1_FUNCTIONS(OCSP_SINGLERESP)
-DECLARE_ASN1_FUNCTIONS(OCSP_CERTSTATUS)
-DECLARE_ASN1_FUNCTIONS(OCSP_REVOKEDINFO)
-DECLARE_ASN1_FUNCTIONS(OCSP_BASICRESP)
-DECLARE_ASN1_FUNCTIONS(OCSP_RESPDATA)
-DECLARE_ASN1_FUNCTIONS(OCSP_RESPID)
-DECLARE_ASN1_FUNCTIONS(OCSP_RESPONSE)
-DECLARE_ASN1_FUNCTIONS(OCSP_RESPBYTES)
-DECLARE_ASN1_FUNCTIONS(OCSP_ONEREQ)
-DECLARE_ASN1_FUNCTIONS(OCSP_CERTID)
-DECLARE_ASN1_FUNCTIONS(OCSP_REQUEST)
-DECLARE_ASN1_FUNCTIONS(OCSP_SIGNATURE)
-DECLARE_ASN1_FUNCTIONS(OCSP_REQINFO)
-DECLARE_ASN1_FUNCTIONS(OCSP_CRLID)
-DECLARE_ASN1_FUNCTIONS(OCSP_SERVICELOC)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_ASN1_FUNCTIONS(OCSP_SINGLERESP)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_ASN1_FUNCTIONS(OCSP_CERTSTATUS)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_ASN1_FUNCTIONS(OCSP_REVOKEDINFO)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_ASN1_FUNCTIONS(OCSP_BASICRESP)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_ASN1_FUNCTIONS(OCSP_RESPDATA)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_ASN1_FUNCTIONS(OCSP_RESPID)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_ASN1_FUNCTIONS(OCSP_RESPONSE)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_ASN1_FUNCTIONS(OCSP_RESPBYTES)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_ASN1_FUNCTIONS(OCSP_ONEREQ)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_ASN1_FUNCTIONS(OCSP_CERTID)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_ASN1_FUNCTIONS(OCSP_REQUEST)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_ASN1_FUNCTIONS(OCSP_SIGNATURE)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_ASN1_FUNCTIONS(OCSP_REQINFO)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_ASN1_FUNCTIONS(OCSP_CRLID)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_ASN1_FUNCTIONS(OCSP_SERVICELOC)
 
-const char *OCSP_response_status_str(long s);
-const char *OCSP_cert_status_str(long s);
-const char *OCSP_crl_reason_str(long s);
+__attribute__ ((visibility ("default"))) const char *OCSP_response_status_str(long s);
+__attribute__ ((visibility ("default"))) const char *OCSP_cert_status_str(long s);
+__attribute__ ((visibility ("default"))) const char *OCSP_crl_reason_str(long s);
 
-int OCSP_REQUEST_print(BIO *bp, OCSP_REQUEST *a, unsigned long flags);
-int OCSP_RESPONSE_print(BIO *bp, OCSP_RESPONSE *o, unsigned long flags);
+__attribute__ ((visibility ("default"))) int OCSP_REQUEST_print(BIO *bp, OCSP_REQUEST *a, unsigned long flags);
+__attribute__ ((visibility ("default"))) int OCSP_RESPONSE_print(BIO *bp, OCSP_RESPONSE *o, unsigned long flags);
 
-int OCSP_basic_verify(OCSP_BASICRESP *bs, STACK_OF(X509) *certs,
+__attribute__ ((visibility ("default"))) int OCSP_basic_verify(OCSP_BASICRESP *bs, STACK_OF(X509) *certs,
                       X509_STORE *st, unsigned long flags);
 
 /* BEGIN ERROR CODES */
@@ -574,7 +574,7 @@ int OCSP_basic_verify(OCSP_BASICRESP *bs, STACK_OF(X509) *certs,
  * The following lines are auto generated by the script mkerr.pl. Any changes
  * made after this point may be overwritten when the script is next run.
  */
-void ERR_load_OCSP_strings(void);
+__attribute__ ((visibility ("default"))) void ERR_load_OCSP_strings(void);
 
 /* Error codes for the OCSP functions. */
 

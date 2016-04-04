@@ -306,8 +306,8 @@ extern "C" {
 
 #  define TLSEXT_MAXLEN_host_name 255
 
-const char *SSL_get_servername(const SSL *s, const int type);
-int SSL_get_servername_type(const SSL *s);
+__attribute__ ((visibility ("default"))) const char *SSL_get_servername(const SSL *s, const int type);
+__attribute__ ((visibility ("default"))) int SSL_get_servername_type(const SSL *s);
 /*
  * SSL_export_keying_material exports a value derived from the master secret,
  * as specified in RFC 5705. It writes |olen| bytes to |out| given a label and
@@ -315,20 +315,20 @@ int SSL_get_servername_type(const SSL *s);
  * flag controls whether a context is included.) It returns 1 on success and
  * zero otherwise.
  */
-int SSL_export_keying_material(SSL *s, unsigned char *out, size_t olen,
+__attribute__ ((visibility ("default"))) int SSL_export_keying_material(SSL *s, unsigned char *out, size_t olen,
                                const char *label, size_t llen,
                                const unsigned char *p, size_t plen,
                                int use_context);
 
-int SSL_get_sigalgs(SSL *s, int idx,
+__attribute__ ((visibility ("default"))) int SSL_get_sigalgs(SSL *s, int idx,
                     int *psign, int *phash, int *psignandhash,
                     unsigned char *rsig, unsigned char *rhash);
 
-int SSL_get_shared_sigalgs(SSL *s, int idx,
+__attribute__ ((visibility ("default"))) int SSL_get_shared_sigalgs(SSL *s, int idx,
                            int *psign, int *phash, int *psignandhash,
                            unsigned char *rsig, unsigned char *rhash);
 
-int SSL_check_chain(SSL *s, X509 *x, EVP_PKEY *pk, STACK_OF(X509) *chain);
+__attribute__ ((visibility ("default"))) int SSL_check_chain(SSL *s, X509 *x, EVP_PKEY *pk, STACK_OF(X509) *chain);
 
 #  define SSL_set_tlsext_host_name(s,name) \
 SSL_ctrl(s,SSL_CTRL_SET_TLSEXT_HOSTNAME,TLSEXT_NAMETYPE_host_name,(char *)name)

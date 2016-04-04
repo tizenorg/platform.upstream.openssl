@@ -27,11 +27,11 @@ typedef struct {
 #  ifdef OPENSSL_FIPS
 int private_WHIRLPOOL_Init(WHIRLPOOL_CTX *c);
 #  endif
-int WHIRLPOOL_Init(WHIRLPOOL_CTX *c);
-int WHIRLPOOL_Update(WHIRLPOOL_CTX *c, const void *inp, size_t bytes);
-void WHIRLPOOL_BitUpdate(WHIRLPOOL_CTX *c, const void *inp, size_t bits);
-int WHIRLPOOL_Final(unsigned char *md, WHIRLPOOL_CTX *c);
-unsigned char *WHIRLPOOL(const void *inp, size_t bytes, unsigned char *md);
+__attribute__ ((visibility ("default"))) int WHIRLPOOL_Init(WHIRLPOOL_CTX *c);
+__attribute__ ((visibility ("default"))) int WHIRLPOOL_Update(WHIRLPOOL_CTX *c, const void *inp, size_t bytes);
+__attribute__ ((visibility ("default"))) void WHIRLPOOL_BitUpdate(WHIRLPOOL_CTX *c, const void *inp, size_t bits);
+__attribute__ ((visibility ("default"))) int WHIRLPOOL_Final(unsigned char *md, WHIRLPOOL_CTX *c);
+__attribute__ ((visibility ("default"))) unsigned char *WHIRLPOOL(const void *inp, size_t bytes, unsigned char *md);
 # endif
 
 #ifdef __cplusplus

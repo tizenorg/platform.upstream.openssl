@@ -92,18 +92,18 @@ typedef struct txt_db_st {
 } TXT_DB;
 
 # ifndef OPENSSL_NO_BIO
-TXT_DB *TXT_DB_read(BIO *in, int num);
-long TXT_DB_write(BIO *out, TXT_DB *db);
+__attribute__ ((visibility ("default"))) TXT_DB *TXT_DB_read(BIO *in, int num);
+__attribute__ ((visibility ("default"))) long TXT_DB_write(BIO *out, TXT_DB *db);
 # else
 TXT_DB *TXT_DB_read(char *in, int num);
 long TXT_DB_write(char *out, TXT_DB *db);
 # endif
-int TXT_DB_create_index(TXT_DB *db, int field, int (*qual) (OPENSSL_STRING *),
+__attribute__ ((visibility ("default"))) int TXT_DB_create_index(TXT_DB *db, int field, int (*qual) (OPENSSL_STRING *),
                         LHASH_HASH_FN_TYPE hash, LHASH_COMP_FN_TYPE cmp);
-void TXT_DB_free(TXT_DB *db);
-OPENSSL_STRING *TXT_DB_get_by_index(TXT_DB *db, int idx,
+__attribute__ ((visibility ("default"))) void TXT_DB_free(TXT_DB *db);
+__attribute__ ((visibility ("default"))) OPENSSL_STRING *TXT_DB_get_by_index(TXT_DB *db, int idx,
                                     OPENSSL_STRING *value);
-int TXT_DB_insert(TXT_DB *db, OPENSSL_STRING *value);
+__attribute__ ((visibility ("default"))) int TXT_DB_insert(TXT_DB *db, OPENSSL_STRING *value);
 
 #ifdef  __cplusplus
 }

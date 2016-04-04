@@ -64,17 +64,17 @@ extern "C" {
 /* Opaque */
 typedef struct CMAC_CTX_st CMAC_CTX;
 
-CMAC_CTX *CMAC_CTX_new(void);
-void CMAC_CTX_cleanup(CMAC_CTX *ctx);
-void CMAC_CTX_free(CMAC_CTX *ctx);
-EVP_CIPHER_CTX *CMAC_CTX_get0_cipher_ctx(CMAC_CTX *ctx);
-int CMAC_CTX_copy(CMAC_CTX *out, const CMAC_CTX *in);
+__attribute__ ((visibility ("default"))) CMAC_CTX *CMAC_CTX_new(void);
+__attribute__ ((visibility ("default"))) void CMAC_CTX_cleanup(CMAC_CTX *ctx);
+__attribute__ ((visibility ("default"))) void CMAC_CTX_free(CMAC_CTX *ctx);
+__attribute__ ((visibility ("default"))) EVP_CIPHER_CTX *CMAC_CTX_get0_cipher_ctx(CMAC_CTX *ctx);
+__attribute__ ((visibility ("default"))) int CMAC_CTX_copy(CMAC_CTX *out, const CMAC_CTX *in);
 
-int CMAC_Init(CMAC_CTX *ctx, const void *key, size_t keylen,
+__attribute__ ((visibility ("default"))) int CMAC_Init(CMAC_CTX *ctx, const void *key, size_t keylen,
               const EVP_CIPHER *cipher, ENGINE *impl);
-int CMAC_Update(CMAC_CTX *ctx, const void *data, size_t dlen);
-int CMAC_Final(CMAC_CTX *ctx, unsigned char *out, size_t *poutlen);
-int CMAC_resume(CMAC_CTX *ctx);
+__attribute__ ((visibility ("default"))) int CMAC_Update(CMAC_CTX *ctx, const void *data, size_t dlen);
+__attribute__ ((visibility ("default"))) int CMAC_Final(CMAC_CTX *ctx, unsigned char *out, size_t *poutlen);
+__attribute__ ((visibility ("default"))) int CMAC_resume(CMAC_CTX *ctx);
 
 #ifdef  __cplusplus
 }

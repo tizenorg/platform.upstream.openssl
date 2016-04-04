@@ -79,14 +79,14 @@ typedef struct MD2state_st {
     MD2_INT state[MD2_BLOCK];
 } MD2_CTX;
 
-const char *MD2_options(void);
+__attribute__ ((visibility ("default"))) const char *MD2_options(void);
 # ifdef OPENSSL_FIPS
 int private_MD2_Init(MD2_CTX *c);
 # endif
-int MD2_Init(MD2_CTX *c);
-int MD2_Update(MD2_CTX *c, const unsigned char *data, size_t len);
-int MD2_Final(unsigned char *md, MD2_CTX *c);
-unsigned char *MD2(const unsigned char *d, size_t n, unsigned char *md);
+__attribute__ ((visibility ("default"))) int MD2_Init(MD2_CTX *c);
+__attribute__ ((visibility ("default"))) int MD2_Update(MD2_CTX *c, const unsigned char *data, size_t len);
+__attribute__ ((visibility ("default"))) int MD2_Final(unsigned char *md, MD2_CTX *c);
+__attribute__ ((visibility ("default"))) unsigned char *MD2(const unsigned char *d, size_t n, unsigned char *md);
 #ifdef  __cplusplus
 }
 #endif

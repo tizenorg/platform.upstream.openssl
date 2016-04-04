@@ -62,7 +62,7 @@ extern "C" {
 #endif
 
 #ifndef HEADER_PEM_H
-void ERR_load_PEM_strings(void);
+__attribute__ ((visibility ("default"))) void ERR_load_PEM_strings(void);
 #endif
 
 #ifdef __cplusplus

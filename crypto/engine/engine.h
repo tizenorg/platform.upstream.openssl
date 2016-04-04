@@ -380,20 +380,20 @@ typedef int (*ENGINE_PKEY_ASN1_METHS_PTR) (ENGINE *, EVP_PKEY_ASN1_METHOD **,
  */
 
 /* Get the first/last "ENGINE" type available. */
-ENGINE *ENGINE_get_first(void);
-ENGINE *ENGINE_get_last(void);
+__attribute__ ((visibility ("default"))) ENGINE *ENGINE_get_first(void);
+__attribute__ ((visibility ("default"))) ENGINE *ENGINE_get_last(void);
 /* Iterate to the next/previous "ENGINE" type (NULL = end of the list). */
-ENGINE *ENGINE_get_next(ENGINE *e);
-ENGINE *ENGINE_get_prev(ENGINE *e);
+__attribute__ ((visibility ("default"))) ENGINE *ENGINE_get_next(ENGINE *e);
+__attribute__ ((visibility ("default"))) ENGINE *ENGINE_get_prev(ENGINE *e);
 /* Add another "ENGINE" type into the array. */
-int ENGINE_add(ENGINE *e);
+__attribute__ ((visibility ("default"))) int ENGINE_add(ENGINE *e);
 /* Remove an existing "ENGINE" type from the array. */
-int ENGINE_remove(ENGINE *e);
+__attribute__ ((visibility ("default"))) int ENGINE_remove(ENGINE *e);
 /* Retrieve an engine from the list by its unique "id" value. */
-ENGINE *ENGINE_by_id(const char *id);
+__attribute__ ((visibility ("default"))) ENGINE *ENGINE_by_id(const char *id);
 /* Add all the built-in engines. */
-void ENGINE_load_openssl(void);
-void ENGINE_load_dynamic(void);
+__attribute__ ((visibility ("default"))) void ENGINE_load_openssl(void);
+__attribute__ ((visibility ("default"))) void ENGINE_load_dynamic(void);
 # ifndef OPENSSL_NO_STATIC_ENGINE
 void ENGINE_load_4758cca(void);
 void ENGINE_load_aep(void);
@@ -412,16 +412,16 @@ void ENGINE_load_gmp(void);
 void ENGINE_load_gost(void);
 #  endif
 # endif
-void ENGINE_load_cryptodev(void);
-void ENGINE_load_rdrand(void);
-void ENGINE_load_builtin_engines(void);
+__attribute__ ((visibility ("default"))) void ENGINE_load_cryptodev(void);
+__attribute__ ((visibility ("default"))) void ENGINE_load_rdrand(void);
+__attribute__ ((visibility ("default"))) void ENGINE_load_builtin_engines(void);
 
 /*
  * Get and set global flags (ENGINE_TABLE_FLAG_***) for the implementation
  * "registry" handling.
  */
-unsigned int ENGINE_get_table_flags(void);
-void ENGINE_set_table_flags(unsigned int flags);
+__attribute__ ((visibility ("default"))) unsigned int ENGINE_get_table_flags(void);
+__attribute__ ((visibility ("default"))) void ENGINE_set_table_flags(unsigned int flags);
 
 /*- Manage registration of ENGINEs per "table". For each type, there are 3
  * functions;
@@ -432,49 +432,49 @@ void ENGINE_set_table_flags(unsigned int flags);
  * ENGINE_cleanup() will reverse any "register" operations.
  */
 
-int ENGINE_register_RSA(ENGINE *e);
-void ENGINE_unregister_RSA(ENGINE *e);
-void ENGINE_register_all_RSA(void);
+__attribute__ ((visibility ("default"))) int ENGINE_register_RSA(ENGINE *e);
+__attribute__ ((visibility ("default"))) void ENGINE_unregister_RSA(ENGINE *e);
+__attribute__ ((visibility ("default"))) void ENGINE_register_all_RSA(void);
 
-int ENGINE_register_DSA(ENGINE *e);
-void ENGINE_unregister_DSA(ENGINE *e);
-void ENGINE_register_all_DSA(void);
+__attribute__ ((visibility ("default"))) int ENGINE_register_DSA(ENGINE *e);
+__attribute__ ((visibility ("default"))) void ENGINE_unregister_DSA(ENGINE *e);
+__attribute__ ((visibility ("default"))) void ENGINE_register_all_DSA(void);
 
-int ENGINE_register_ECDH(ENGINE *e);
-void ENGINE_unregister_ECDH(ENGINE *e);
-void ENGINE_register_all_ECDH(void);
+__attribute__ ((visibility ("default"))) int ENGINE_register_ECDH(ENGINE *e);
+__attribute__ ((visibility ("default"))) void ENGINE_unregister_ECDH(ENGINE *e);
+__attribute__ ((visibility ("default"))) void ENGINE_register_all_ECDH(void);
 
-int ENGINE_register_ECDSA(ENGINE *e);
-void ENGINE_unregister_ECDSA(ENGINE *e);
-void ENGINE_register_all_ECDSA(void);
+__attribute__ ((visibility ("default"))) int ENGINE_register_ECDSA(ENGINE *e);
+__attribute__ ((visibility ("default"))) void ENGINE_unregister_ECDSA(ENGINE *e);
+__attribute__ ((visibility ("default"))) void ENGINE_register_all_ECDSA(void);
 
-int ENGINE_register_DH(ENGINE *e);
-void ENGINE_unregister_DH(ENGINE *e);
-void ENGINE_register_all_DH(void);
+__attribute__ ((visibility ("default"))) int ENGINE_register_DH(ENGINE *e);
+__attribute__ ((visibility ("default"))) void ENGINE_unregister_DH(ENGINE *e);
+__attribute__ ((visibility ("default"))) void ENGINE_register_all_DH(void);
 
-int ENGINE_register_RAND(ENGINE *e);
-void ENGINE_unregister_RAND(ENGINE *e);
-void ENGINE_register_all_RAND(void);
+__attribute__ ((visibility ("default"))) int ENGINE_register_RAND(ENGINE *e);
+__attribute__ ((visibility ("default"))) void ENGINE_unregister_RAND(ENGINE *e);
+__attribute__ ((visibility ("default"))) void ENGINE_register_all_RAND(void);
 
-int ENGINE_register_STORE(ENGINE *e);
-void ENGINE_unregister_STORE(ENGINE *e);
-void ENGINE_register_all_STORE(void);
+__attribute__ ((visibility ("default"))) int ENGINE_register_STORE(ENGINE *e);
+__attribute__ ((visibility ("default"))) void ENGINE_unregister_STORE(ENGINE *e);
+__attribute__ ((visibility ("default"))) void ENGINE_register_all_STORE(void);
 
-int ENGINE_register_ciphers(ENGINE *e);
-void ENGINE_unregister_ciphers(ENGINE *e);
-void ENGINE_register_all_ciphers(void);
+__attribute__ ((visibility ("default"))) int ENGINE_register_ciphers(ENGINE *e);
+__attribute__ ((visibility ("default"))) void ENGINE_unregister_ciphers(ENGINE *e);
+__attribute__ ((visibility ("default"))) void ENGINE_register_all_ciphers(void);
 
-int ENGINE_register_digests(ENGINE *e);
-void ENGINE_unregister_digests(ENGINE *e);
-void ENGINE_register_all_digests(void);
+__attribute__ ((visibility ("default"))) int ENGINE_register_digests(ENGINE *e);
+__attribute__ ((visibility ("default"))) void ENGINE_unregister_digests(ENGINE *e);
+__attribute__ ((visibility ("default"))) void ENGINE_register_all_digests(void);
 
-int ENGINE_register_pkey_meths(ENGINE *e);
-void ENGINE_unregister_pkey_meths(ENGINE *e);
-void ENGINE_register_all_pkey_meths(void);
+__attribute__ ((visibility ("default"))) int ENGINE_register_pkey_meths(ENGINE *e);
+__attribute__ ((visibility ("default"))) void ENGINE_unregister_pkey_meths(ENGINE *e);
+__attribute__ ((visibility ("default"))) void ENGINE_register_all_pkey_meths(void);
 
-int ENGINE_register_pkey_asn1_meths(ENGINE *e);
-void ENGINE_unregister_pkey_asn1_meths(ENGINE *e);
-void ENGINE_register_all_pkey_asn1_meths(void);
+__attribute__ ((visibility ("default"))) int ENGINE_register_pkey_asn1_meths(ENGINE *e);
+__attribute__ ((visibility ("default"))) void ENGINE_unregister_pkey_asn1_meths(ENGINE *e);
+__attribute__ ((visibility ("default"))) void ENGINE_register_all_pkey_asn1_meths(void);
 
 /*
  * These functions register all support from the above categories. Note, use
@@ -482,8 +482,8 @@ void ENGINE_register_all_pkey_asn1_meths(void);
  * may not need. If you only need a subset of functionality, consider using
  * more selective initialisation.
  */
-int ENGINE_register_complete(ENGINE *e);
-int ENGINE_register_all_complete(void);
+__attribute__ ((visibility ("default"))) int ENGINE_register_complete(ENGINE *e);
+__attribute__ ((visibility ("default"))) int ENGINE_register_all_complete(void);
 
 /*
  * Send parametrised control commands to the engine. The possibilities to
@@ -495,7 +495,7 @@ int ENGINE_register_all_complete(void);
  * commands that require an operational ENGINE, and only use functional
  * references in such situations.
  */
-int ENGINE_ctrl(ENGINE *e, int cmd, long i, void *p, void (*f) (void));
+__attribute__ ((visibility ("default"))) int ENGINE_ctrl(ENGINE *e, int cmd, long i, void *p, void (*f) (void));
 
 /*
  * This function tests if an ENGINE-specific command is usable as a
@@ -503,7 +503,7 @@ int ENGINE_ctrl(ENGINE *e, int cmd, long i, void *p, void (*f) (void));
  * ENGINE_ctrl_cmd_string(). If this returns zero, it is not available to
  * ENGINE_ctrl_cmd_string(), only ENGINE_ctrl().
  */
-int ENGINE_cmd_is_executable(ENGINE *e, int cmd);
+__attribute__ ((visibility ("default"))) int ENGINE_cmd_is_executable(ENGINE *e, int cmd);
 
 /*
  * This function works like ENGINE_ctrl() with the exception of taking a
@@ -511,7 +511,7 @@ int ENGINE_cmd_is_executable(ENGINE *e, int cmd);
  * commands. See the comment on ENGINE_ctrl_cmd_string() for an explanation
  * on how to use the cmd_name and cmd_optional.
  */
-int ENGINE_ctrl_cmd(ENGINE *e, const char *cmd_name,
+__attribute__ ((visibility ("default"))) int ENGINE_ctrl_cmd(ENGINE *e, const char *cmd_name,
                     long i, void *p, void (*f) (void), int cmd_optional);
 
 /*
@@ -536,7 +536,7 @@ int ENGINE_ctrl_cmd(ENGINE *e, const char *cmd_name,
  * applications can work consistently with the same configuration for the
  * same ENGINE-enabled devices, across applications.
  */
-int ENGINE_ctrl_cmd_string(ENGINE *e, const char *cmd_name, const char *arg,
+__attribute__ ((visibility ("default"))) int ENGINE_ctrl_cmd_string(ENGINE *e, const char *cmd_name, const char *arg,
                            int cmd_optional);
 
 /*
@@ -547,40 +547,40 @@ int ENGINE_ctrl_cmd_string(ENGINE *e, const char *cmd_name, const char *arg,
  * These are also here so that the ENGINE structure doesn't have to be
  * exposed and break binary compatibility!
  */
-ENGINE *ENGINE_new(void);
-int ENGINE_free(ENGINE *e);
-int ENGINE_up_ref(ENGINE *e);
-int ENGINE_set_id(ENGINE *e, const char *id);
-int ENGINE_set_name(ENGINE *e, const char *name);
-int ENGINE_set_RSA(ENGINE *e, const RSA_METHOD *rsa_meth);
-int ENGINE_set_DSA(ENGINE *e, const DSA_METHOD *dsa_meth);
-int ENGINE_set_ECDH(ENGINE *e, const ECDH_METHOD *ecdh_meth);
-int ENGINE_set_ECDSA(ENGINE *e, const ECDSA_METHOD *ecdsa_meth);
-int ENGINE_set_DH(ENGINE *e, const DH_METHOD *dh_meth);
-int ENGINE_set_RAND(ENGINE *e, const RAND_METHOD *rand_meth);
-int ENGINE_set_STORE(ENGINE *e, const STORE_METHOD *store_meth);
-int ENGINE_set_destroy_function(ENGINE *e, ENGINE_GEN_INT_FUNC_PTR destroy_f);
-int ENGINE_set_init_function(ENGINE *e, ENGINE_GEN_INT_FUNC_PTR init_f);
-int ENGINE_set_finish_function(ENGINE *e, ENGINE_GEN_INT_FUNC_PTR finish_f);
-int ENGINE_set_ctrl_function(ENGINE *e, ENGINE_CTRL_FUNC_PTR ctrl_f);
-int ENGINE_set_load_privkey_function(ENGINE *e,
+__attribute__ ((visibility ("default"))) ENGINE *ENGINE_new(void);
+__attribute__ ((visibility ("default"))) int ENGINE_free(ENGINE *e);
+__attribute__ ((visibility ("default"))) int ENGINE_up_ref(ENGINE *e);
+__attribute__ ((visibility ("default"))) int ENGINE_set_id(ENGINE *e, const char *id);
+__attribute__ ((visibility ("default"))) int ENGINE_set_name(ENGINE *e, const char *name);
+__attribute__ ((visibility ("default"))) int ENGINE_set_RSA(ENGINE *e, const RSA_METHOD *rsa_meth);
+__attribute__ ((visibility ("default"))) int ENGINE_set_DSA(ENGINE *e, const DSA_METHOD *dsa_meth);
+__attribute__ ((visibility ("default"))) int ENGINE_set_ECDH(ENGINE *e, const ECDH_METHOD *ecdh_meth);
+__attribute__ ((visibility ("default"))) int ENGINE_set_ECDSA(ENGINE *e, const ECDSA_METHOD *ecdsa_meth);
+__attribute__ ((visibility ("default"))) int ENGINE_set_DH(ENGINE *e, const DH_METHOD *dh_meth);
+__attribute__ ((visibility ("default"))) int ENGINE_set_RAND(ENGINE *e, const RAND_METHOD *rand_meth);
+__attribute__ ((visibility ("default"))) int ENGINE_set_STORE(ENGINE *e, const STORE_METHOD *store_meth);
+__attribute__ ((visibility ("default"))) int ENGINE_set_destroy_function(ENGINE *e, ENGINE_GEN_INT_FUNC_PTR destroy_f);
+__attribute__ ((visibility ("default"))) int ENGINE_set_init_function(ENGINE *e, ENGINE_GEN_INT_FUNC_PTR init_f);
+__attribute__ ((visibility ("default"))) int ENGINE_set_finish_function(ENGINE *e, ENGINE_GEN_INT_FUNC_PTR finish_f);
+__attribute__ ((visibility ("default"))) int ENGINE_set_ctrl_function(ENGINE *e, ENGINE_CTRL_FUNC_PTR ctrl_f);
+__attribute__ ((visibility ("default"))) int ENGINE_set_load_privkey_function(ENGINE *e,
                                      ENGINE_LOAD_KEY_PTR loadpriv_f);
-int ENGINE_set_load_pubkey_function(ENGINE *e, ENGINE_LOAD_KEY_PTR loadpub_f);
-int ENGINE_set_load_ssl_client_cert_function(ENGINE *e,
+__attribute__ ((visibility ("default"))) int ENGINE_set_load_pubkey_function(ENGINE *e, ENGINE_LOAD_KEY_PTR loadpub_f);
+__attribute__ ((visibility ("default"))) int ENGINE_set_load_ssl_client_cert_function(ENGINE *e,
                                              ENGINE_SSL_CLIENT_CERT_PTR
                                              loadssl_f);
-int ENGINE_set_ciphers(ENGINE *e, ENGINE_CIPHERS_PTR f);
-int ENGINE_set_digests(ENGINE *e, ENGINE_DIGESTS_PTR f);
-int ENGINE_set_pkey_meths(ENGINE *e, ENGINE_PKEY_METHS_PTR f);
-int ENGINE_set_pkey_asn1_meths(ENGINE *e, ENGINE_PKEY_ASN1_METHS_PTR f);
-int ENGINE_set_flags(ENGINE *e, int flags);
-int ENGINE_set_cmd_defns(ENGINE *e, const ENGINE_CMD_DEFN *defns);
+__attribute__ ((visibility ("default"))) int ENGINE_set_ciphers(ENGINE *e, ENGINE_CIPHERS_PTR f);
+__attribute__ ((visibility ("default"))) int ENGINE_set_digests(ENGINE *e, ENGINE_DIGESTS_PTR f);
+__attribute__ ((visibility ("default"))) int ENGINE_set_pkey_meths(ENGINE *e, ENGINE_PKEY_METHS_PTR f);
+__attribute__ ((visibility ("default"))) int ENGINE_set_pkey_asn1_meths(ENGINE *e, ENGINE_PKEY_ASN1_METHS_PTR f);
+__attribute__ ((visibility ("default"))) int ENGINE_set_flags(ENGINE *e, int flags);
+__attribute__ ((visibility ("default"))) int ENGINE_set_cmd_defns(ENGINE *e, const ENGINE_CMD_DEFN *defns);
 /* These functions allow control over any per-structure ENGINE data. */
-int ENGINE_get_ex_new_index(long argl, void *argp, CRYPTO_EX_new *new_func,
+__attribute__ ((visibility ("default"))) int ENGINE_get_ex_new_index(long argl, void *argp, CRYPTO_EX_new *new_func,
                             CRYPTO_EX_dup *dup_func,
                             CRYPTO_EX_free *free_func);
-int ENGINE_set_ex_data(ENGINE *e, int idx, void *arg);
-void *ENGINE_get_ex_data(const ENGINE *e, int idx);
+__attribute__ ((visibility ("default"))) int ENGINE_set_ex_data(ENGINE *e, int idx, void *arg);
+__attribute__ ((visibility ("default"))) void *ENGINE_get_ex_data(const ENGINE *e, int idx);
 
 /*
  * This function cleans up anything that needs it. Eg. the ENGINE_add()
@@ -588,7 +588,7 @@ void *ENGINE_get_ex_data(const ENGINE *e, int idx);
  * be called from ENGINE_cleanup(). Similarly, all ENGINE_register_***
  * functions ensure ENGINE_cleanup() will clean up after them.
  */
-void ENGINE_cleanup(void);
+__attribute__ ((visibility ("default"))) void ENGINE_cleanup(void);
 
 /*
  * These return values from within the ENGINE structure. These can be useful
@@ -596,39 +596,39 @@ void ENGINE_cleanup(void);
  * which you obtained. Using the result for functional purposes if you only
  * obtained a structural reference may be problematic!
  */
-const char *ENGINE_get_id(const ENGINE *e);
-const char *ENGINE_get_name(const ENGINE *e);
-const RSA_METHOD *ENGINE_get_RSA(const ENGINE *e);
-const DSA_METHOD *ENGINE_get_DSA(const ENGINE *e);
-const ECDH_METHOD *ENGINE_get_ECDH(const ENGINE *e);
-const ECDSA_METHOD *ENGINE_get_ECDSA(const ENGINE *e);
-const DH_METHOD *ENGINE_get_DH(const ENGINE *e);
-const RAND_METHOD *ENGINE_get_RAND(const ENGINE *e);
-const STORE_METHOD *ENGINE_get_STORE(const ENGINE *e);
-ENGINE_GEN_INT_FUNC_PTR ENGINE_get_destroy_function(const ENGINE *e);
-ENGINE_GEN_INT_FUNC_PTR ENGINE_get_init_function(const ENGINE *e);
-ENGINE_GEN_INT_FUNC_PTR ENGINE_get_finish_function(const ENGINE *e);
-ENGINE_CTRL_FUNC_PTR ENGINE_get_ctrl_function(const ENGINE *e);
-ENGINE_LOAD_KEY_PTR ENGINE_get_load_privkey_function(const ENGINE *e);
-ENGINE_LOAD_KEY_PTR ENGINE_get_load_pubkey_function(const ENGINE *e);
-ENGINE_SSL_CLIENT_CERT_PTR ENGINE_get_ssl_client_cert_function(const ENGINE
+__attribute__ ((visibility ("default"))) const char *ENGINE_get_id(const ENGINE *e);
+__attribute__ ((visibility ("default"))) const char *ENGINE_get_name(const ENGINE *e);
+__attribute__ ((visibility ("default"))) const RSA_METHOD *ENGINE_get_RSA(const ENGINE *e);
+__attribute__ ((visibility ("default"))) const DSA_METHOD *ENGINE_get_DSA(const ENGINE *e);
+__attribute__ ((visibility ("default"))) const ECDH_METHOD *ENGINE_get_ECDH(const ENGINE *e);
+__attribute__ ((visibility ("default"))) const ECDSA_METHOD *ENGINE_get_ECDSA(const ENGINE *e);
+__attribute__ ((visibility ("default"))) const DH_METHOD *ENGINE_get_DH(const ENGINE *e);
+__attribute__ ((visibility ("default"))) const RAND_METHOD *ENGINE_get_RAND(const ENGINE *e);
+__attribute__ ((visibility ("default"))) const STORE_METHOD *ENGINE_get_STORE(const ENGINE *e);
+__attribute__ ((visibility ("default"))) ENGINE_GEN_INT_FUNC_PTR ENGINE_get_destroy_function(const ENGINE *e);
+__attribute__ ((visibility ("default"))) ENGINE_GEN_INT_FUNC_PTR ENGINE_get_init_function(const ENGINE *e);
+__attribute__ ((visibility ("default"))) ENGINE_GEN_INT_FUNC_PTR ENGINE_get_finish_function(const ENGINE *e);
+__attribute__ ((visibility ("default"))) ENGINE_CTRL_FUNC_PTR ENGINE_get_ctrl_function(const ENGINE *e);
+__attribute__ ((visibility ("default"))) ENGINE_LOAD_KEY_PTR ENGINE_get_load_privkey_function(const ENGINE *e);
+__attribute__ ((visibility ("default"))) ENGINE_LOAD_KEY_PTR ENGINE_get_load_pubkey_function(const ENGINE *e);
+__attribute__ ((visibility ("default"))) ENGINE_SSL_CLIENT_CERT_PTR ENGINE_get_ssl_client_cert_function(const ENGINE
                                                                *e);
-ENGINE_CIPHERS_PTR ENGINE_get_ciphers(const ENGINE *e);
-ENGINE_DIGESTS_PTR ENGINE_get_digests(const ENGINE *e);
-ENGINE_PKEY_METHS_PTR ENGINE_get_pkey_meths(const ENGINE *e);
-ENGINE_PKEY_ASN1_METHS_PTR ENGINE_get_pkey_asn1_meths(const ENGINE *e);
-const EVP_CIPHER *ENGINE_get_cipher(ENGINE *e, int nid);
-const EVP_MD *ENGINE_get_digest(ENGINE *e, int nid);
-const EVP_PKEY_METHOD *ENGINE_get_pkey_meth(ENGINE *e, int nid);
-const EVP_PKEY_ASN1_METHOD *ENGINE_get_pkey_asn1_meth(ENGINE *e, int nid);
-const EVP_PKEY_ASN1_METHOD *ENGINE_get_pkey_asn1_meth_str(ENGINE *e,
+__attribute__ ((visibility ("default"))) ENGINE_CIPHERS_PTR ENGINE_get_ciphers(const ENGINE *e);
+__attribute__ ((visibility ("default"))) ENGINE_DIGESTS_PTR ENGINE_get_digests(const ENGINE *e);
+__attribute__ ((visibility ("default"))) ENGINE_PKEY_METHS_PTR ENGINE_get_pkey_meths(const ENGINE *e);
+__attribute__ ((visibility ("default"))) ENGINE_PKEY_ASN1_METHS_PTR ENGINE_get_pkey_asn1_meths(const ENGINE *e);
+__attribute__ ((visibility ("default"))) const EVP_CIPHER *ENGINE_get_cipher(ENGINE *e, int nid);
+__attribute__ ((visibility ("default"))) const EVP_MD *ENGINE_get_digest(ENGINE *e, int nid);
+__attribute__ ((visibility ("default"))) const EVP_PKEY_METHOD *ENGINE_get_pkey_meth(ENGINE *e, int nid);
+__attribute__ ((visibility ("default"))) const EVP_PKEY_ASN1_METHOD *ENGINE_get_pkey_asn1_meth(ENGINE *e, int nid);
+__attribute__ ((visibility ("default"))) const EVP_PKEY_ASN1_METHOD *ENGINE_get_pkey_asn1_meth_str(ENGINE *e,
                                                           const char *str,
                                                           int len);
-const EVP_PKEY_ASN1_METHOD *ENGINE_pkey_asn1_find_str(ENGINE **pe,
+__attribute__ ((visibility ("default"))) const EVP_PKEY_ASN1_METHOD *ENGINE_pkey_asn1_find_str(ENGINE **pe,
                                                       const char *str,
                                                       int len);
-const ENGINE_CMD_DEFN *ENGINE_get_cmd_defns(const ENGINE *e);
-int ENGINE_get_flags(const ENGINE *e);
+__attribute__ ((visibility ("default"))) const ENGINE_CMD_DEFN *ENGINE_get_cmd_defns(const ENGINE *e);
+__attribute__ ((visibility ("default"))) int ENGINE_get_flags(const ENGINE *e);
 
 /*
  * FUNCTIONAL functions. These functions deal with ENGINE structures that
@@ -648,24 +648,24 @@ int ENGINE_get_flags(const ENGINE *e);
  * already in use). This will fail if the engine is not currently operational
  * and cannot initialise.
  */
-int ENGINE_init(ENGINE *e);
+__attribute__ ((visibility ("default"))) int ENGINE_init(ENGINE *e);
 /*
  * Free a functional reference to a engine type. This does not require a
  * corresponding call to ENGINE_free as it also releases a structural
  * reference.
  */
-int ENGINE_finish(ENGINE *e);
+__attribute__ ((visibility ("default"))) int ENGINE_finish(ENGINE *e);
 
 /*
  * The following functions handle keys that are stored in some secondary
  * location, handled by the engine.  The storage may be on a card or
  * whatever.
  */
-EVP_PKEY *ENGINE_load_private_key(ENGINE *e, const char *key_id,
+__attribute__ ((visibility ("default"))) EVP_PKEY *ENGINE_load_private_key(ENGINE *e, const char *key_id,
                                   UI_METHOD *ui_method, void *callback_data);
-EVP_PKEY *ENGINE_load_public_key(ENGINE *e, const char *key_id,
+__attribute__ ((visibility ("default"))) EVP_PKEY *ENGINE_load_public_key(ENGINE *e, const char *key_id,
                                  UI_METHOD *ui_method, void *callback_data);
-int ENGINE_load_ssl_client_cert(ENGINE *e, SSL *s,
+__attribute__ ((visibility ("default"))) int ENGINE_load_ssl_client_cert(ENGINE *e, SSL *s,
                                 STACK_OF(X509_NAME) *ca_dn, X509 **pcert,
                                 EVP_PKEY **ppkey, STACK_OF(X509) **pother,
                                 UI_METHOD *ui_method, void *callback_data);
@@ -676,21 +676,21 @@ int ENGINE_load_ssl_client_cert(ENGINE *e, SSL *s,
  * incremented reference, so it should be free'd (ENGINE_finish) before it is
  * discarded.
  */
-ENGINE *ENGINE_get_default_RSA(void);
+__attribute__ ((visibility ("default"))) ENGINE *ENGINE_get_default_RSA(void);
 /* Same for the other "methods" */
-ENGINE *ENGINE_get_default_DSA(void);
-ENGINE *ENGINE_get_default_ECDH(void);
-ENGINE *ENGINE_get_default_ECDSA(void);
-ENGINE *ENGINE_get_default_DH(void);
-ENGINE *ENGINE_get_default_RAND(void);
+__attribute__ ((visibility ("default"))) ENGINE *ENGINE_get_default_DSA(void);
+__attribute__ ((visibility ("default"))) ENGINE *ENGINE_get_default_ECDH(void);
+__attribute__ ((visibility ("default"))) ENGINE *ENGINE_get_default_ECDSA(void);
+__attribute__ ((visibility ("default"))) ENGINE *ENGINE_get_default_DH(void);
+__attribute__ ((visibility ("default"))) ENGINE *ENGINE_get_default_RAND(void);
 /*
  * These functions can be used to get a functional reference to perform
  * ciphering or digesting corresponding to "nid".
  */
-ENGINE *ENGINE_get_cipher_engine(int nid);
-ENGINE *ENGINE_get_digest_engine(int nid);
-ENGINE *ENGINE_get_pkey_meth_engine(int nid);
-ENGINE *ENGINE_get_pkey_asn1_meth_engine(int nid);
+__attribute__ ((visibility ("default"))) ENGINE *ENGINE_get_cipher_engine(int nid);
+__attribute__ ((visibility ("default"))) ENGINE *ENGINE_get_digest_engine(int nid);
+__attribute__ ((visibility ("default"))) ENGINE *ENGINE_get_pkey_meth_engine(int nid);
+__attribute__ ((visibility ("default"))) ENGINE *ENGINE_get_pkey_asn1_meth_engine(int nid);
 
 /*
  * This sets a new default ENGINE structure for performing RSA operations. If
@@ -698,18 +698,18 @@ ENGINE *ENGINE_get_pkey_asn1_meth_engine(int nid);
  * its reference count up'd so the caller should still free their own
  * reference 'e'.
  */
-int ENGINE_set_default_RSA(ENGINE *e);
-int ENGINE_set_default_string(ENGINE *e, const char *def_list);
+__attribute__ ((visibility ("default"))) int ENGINE_set_default_RSA(ENGINE *e);
+__attribute__ ((visibility ("default"))) int ENGINE_set_default_string(ENGINE *e, const char *def_list);
 /* Same for the other "methods" */
-int ENGINE_set_default_DSA(ENGINE *e);
-int ENGINE_set_default_ECDH(ENGINE *e);
-int ENGINE_set_default_ECDSA(ENGINE *e);
-int ENGINE_set_default_DH(ENGINE *e);
-int ENGINE_set_default_RAND(ENGINE *e);
-int ENGINE_set_default_ciphers(ENGINE *e);
-int ENGINE_set_default_digests(ENGINE *e);
-int ENGINE_set_default_pkey_meths(ENGINE *e);
-int ENGINE_set_default_pkey_asn1_meths(ENGINE *e);
+__attribute__ ((visibility ("default"))) int ENGINE_set_default_DSA(ENGINE *e);
+__attribute__ ((visibility ("default"))) int ENGINE_set_default_ECDH(ENGINE *e);
+__attribute__ ((visibility ("default"))) int ENGINE_set_default_ECDSA(ENGINE *e);
+__attribute__ ((visibility ("default"))) int ENGINE_set_default_DH(ENGINE *e);
+__attribute__ ((visibility ("default"))) int ENGINE_set_default_RAND(ENGINE *e);
+__attribute__ ((visibility ("default"))) int ENGINE_set_default_ciphers(ENGINE *e);
+__attribute__ ((visibility ("default"))) int ENGINE_set_default_digests(ENGINE *e);
+__attribute__ ((visibility ("default"))) int ENGINE_set_default_pkey_meths(ENGINE *e);
+__attribute__ ((visibility ("default"))) int ENGINE_set_default_pkey_asn1_meths(ENGINE *e);
 
 /*
  * The combination "set" - the flags are bitwise "OR"d from the
@@ -718,9 +718,9 @@ int ENGINE_set_default_pkey_asn1_meths(ENGINE *e);
  * application requires only specific functionality, consider using more
  * selective functions.
  */
-int ENGINE_set_default(ENGINE *e, unsigned int flags);
+__attribute__ ((visibility ("default"))) int ENGINE_set_default(ENGINE *e, unsigned int flags);
 
-void ENGINE_add_conf_module(void);
+__attribute__ ((visibility ("default"))) void ENGINE_add_conf_module(void);
 
 /* Deprecated functions ... */
 /* int ENGINE_clear_defaults(void); */
@@ -855,7 +855,7 @@ typedef int (*dynamic_bind_engine) (ENGINE *e, const char *id,
  * static data and let the loading application and loaded ENGINE compare
  * their respective values.
  */
-void *ENGINE_get_static_state(void);
+__attribute__ ((visibility ("default"))) void *ENGINE_get_static_state(void);
 
 # if defined(__OpenBSD__) || defined(__FreeBSD__) || defined(HAVE_CRYPTODEV)
 void ENGINE_setup_bsd_cryptodev(void);
@@ -866,7 +866,7 @@ void ENGINE_setup_bsd_cryptodev(void);
  * The following lines are auto generated by the script mkerr.pl. Any changes
  * made after this point may be overwritten when the script is next run.
  */
-void ERR_load_ENGINE_strings(void);
+__attribute__ ((visibility ("default"))) void ERR_load_ENGINE_strings(void);
 
 /* Error codes for the ENGINE functions. */
 

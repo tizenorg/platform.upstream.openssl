@@ -388,7 +388,7 @@ struct CMS_Receipt_st {
     ASN1_OCTET_STRING *originatorSignatureValue;
 };
 
-DECLARE_ASN1_FUNCTIONS(CMS_ContentInfo)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_ASN1_FUNCTIONS(CMS_ContentInfo)
 DECLARE_ASN1_ITEM(CMS_SignerInfo)
 DECLARE_ASN1_ITEM(CMS_IssuerAndSerialNumber)
 DECLARE_ASN1_ITEM(CMS_Attributes_Sign)

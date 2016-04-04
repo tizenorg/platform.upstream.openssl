@@ -172,26 +172,26 @@ typedef struct lhash_st {
  */
 # define lh_error(lh)    ((lh)->error)
 
-_LHASH *lh_new(LHASH_HASH_FN_TYPE h, LHASH_COMP_FN_TYPE c);
-void lh_free(_LHASH *lh);
-void *lh_insert(_LHASH *lh, void *data);
-void *lh_delete(_LHASH *lh, const void *data);
-void *lh_retrieve(_LHASH *lh, const void *data);
-void lh_doall(_LHASH *lh, LHASH_DOALL_FN_TYPE func);
-void lh_doall_arg(_LHASH *lh, LHASH_DOALL_ARG_FN_TYPE func, void *arg);
-unsigned long lh_strhash(const char *c);
-unsigned long lh_num_items(const _LHASH *lh);
+__attribute__ ((visibility ("default"))) _LHASH *lh_new(LHASH_HASH_FN_TYPE h, LHASH_COMP_FN_TYPE c);
+__attribute__ ((visibility ("default"))) void lh_free(_LHASH *lh);
+__attribute__ ((visibility ("default"))) void *lh_insert(_LHASH *lh, void *data);
+__attribute__ ((visibility ("default"))) void *lh_delete(_LHASH *lh, const void *data);
+__attribute__ ((visibility ("default"))) void *lh_retrieve(_LHASH *lh, const void *data);
+__attribute__ ((visibility ("default"))) void lh_doall(_LHASH *lh, LHASH_DOALL_FN_TYPE func);
+__attribute__ ((visibility ("default"))) void lh_doall_arg(_LHASH *lh, LHASH_DOALL_ARG_FN_TYPE func, void *arg);
+__attribute__ ((visibility ("default"))) unsigned long lh_strhash(const char *c);
+__attribute__ ((visibility ("default"))) unsigned long lh_num_items(const _LHASH *lh);
 
 # ifndef OPENSSL_NO_FP_API
-void lh_stats(const _LHASH *lh, FILE *out);
-void lh_node_stats(const _LHASH *lh, FILE *out);
-void lh_node_usage_stats(const _LHASH *lh, FILE *out);
+__attribute__ ((visibility ("default"))) void lh_stats(const _LHASH *lh, FILE *out);
+__attribute__ ((visibility ("default"))) void lh_node_stats(const _LHASH *lh, FILE *out);
+__attribute__ ((visibility ("default"))) void lh_node_usage_stats(const _LHASH *lh, FILE *out);
 # endif
 
 # ifndef OPENSSL_NO_BIO
-void lh_stats_bio(const _LHASH *lh, BIO *out);
-void lh_node_stats_bio(const _LHASH *lh, BIO *out);
-void lh_node_usage_stats_bio(const _LHASH *lh, BIO *out);
+__attribute__ ((visibility ("default"))) void lh_stats_bio(const _LHASH *lh, BIO *out);
+__attribute__ ((visibility ("default"))) void lh_node_stats_bio(const _LHASH *lh, BIO *out);
+__attribute__ ((visibility ("default"))) void lh_node_usage_stats_bio(const _LHASH *lh, BIO *out);
 # endif
 
 /* Type checking... */

@@ -570,8 +570,8 @@ err:\
 # define M_ASN1_I2D_finish()     *pp=p; \
                                 return(r);
 
-int asn1_GetSequence(ASN1_const_CTX *c, long *length);
-void asn1_add_error(const unsigned char *address, int offset);
+__attribute__ ((visibility ("default"))) int asn1_GetSequence(ASN1_const_CTX *c, long *length);
+__attribute__ ((visibility ("default"))) void asn1_add_error(const unsigned char *address, int offset);
 #ifdef  __cplusplus
 }
 #endif

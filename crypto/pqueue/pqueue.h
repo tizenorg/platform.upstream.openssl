@@ -77,21 +77,21 @@ typedef struct _pitem {
 
 typedef struct _pitem *piterator;
 
-pitem *pitem_new(unsigned char *prio64be, void *data);
-void pitem_free(pitem *item);
+__attribute__ ((visibility ("default"))) pitem *pitem_new(unsigned char *prio64be, void *data);
+__attribute__ ((visibility ("default"))) void pitem_free(pitem *item);
 
-pqueue pqueue_new(void);
-void pqueue_free(pqueue pq);
+__attribute__ ((visibility ("default"))) pqueue pqueue_new(void);
+__attribute__ ((visibility ("default"))) void pqueue_free(pqueue pq);
 
-pitem *pqueue_insert(pqueue pq, pitem *item);
-pitem *pqueue_peek(pqueue pq);
-pitem *pqueue_pop(pqueue pq);
-pitem *pqueue_find(pqueue pq, unsigned char *prio64be);
-pitem *pqueue_iterator(pqueue pq);
-pitem *pqueue_next(piterator *iter);
+__attribute__ ((visibility ("default"))) pitem *pqueue_insert(pqueue pq, pitem *item);
+__attribute__ ((visibility ("default"))) pitem *pqueue_peek(pqueue pq);
+__attribute__ ((visibility ("default"))) pitem *pqueue_pop(pqueue pq);
+__attribute__ ((visibility ("default"))) pitem *pqueue_find(pqueue pq, unsigned char *prio64be);
+__attribute__ ((visibility ("default"))) pitem *pqueue_iterator(pqueue pq);
+__attribute__ ((visibility ("default"))) pitem *pqueue_next(piterator *iter);
 
-void pqueue_print(pqueue pq);
-int pqueue_size(pqueue pq);
+__attribute__ ((visibility ("default"))) void pqueue_print(pqueue pq);
+__attribute__ ((visibility ("default"))) int pqueue_size(pqueue pq);
 
 #ifdef  __cplusplus
 }

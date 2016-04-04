@@ -317,50 +317,50 @@ struct rsa_st {
 # define RSA_set_app_data(s,arg)         RSA_set_ex_data(s,0,arg)
 # define RSA_get_app_data(s)             RSA_get_ex_data(s,0)
 
-RSA *RSA_new(void);
-RSA *RSA_new_method(ENGINE *engine);
-int RSA_size(const RSA *rsa);
+__attribute__ ((visibility ("default"))) RSA *RSA_new(void);
+__attribute__ ((visibility ("default"))) RSA *RSA_new_method(ENGINE *engine);
+__attribute__ ((visibility ("default"))) int RSA_size(const RSA *rsa);
 
 /* Deprecated version */
 # ifndef OPENSSL_NO_DEPRECATED
-RSA *RSA_generate_key(int bits, unsigned long e, void
+__attribute__ ((visibility ("default"))) RSA *RSA_generate_key(int bits, unsigned long e, void
                        (*callback) (int, int, void *), void *cb_arg);
 # endif                         /* !defined(OPENSSL_NO_DEPRECATED) */
 
 /* New version */
-int RSA_generate_key_ex(RSA *rsa, int bits, BIGNUM *e, BN_GENCB *cb);
+__attribute__ ((visibility ("default"))) int RSA_generate_key_ex(RSA *rsa, int bits, BIGNUM *e, BN_GENCB *cb);
 
-int RSA_check_key(const RSA *);
+__attribute__ ((visibility ("default"))) int RSA_check_key(const RSA *);
         /* next 4 return -1 on error */
-int RSA_public_encrypt(int flen, const unsigned char *from,
+__attribute__ ((visibility ("default"))) int RSA_public_encrypt(int flen, const unsigned char *from,
                        unsigned char *to, RSA *rsa, int padding);
-int RSA_private_encrypt(int flen, const unsigned char *from,
+__attribute__ ((visibility ("default"))) int RSA_private_encrypt(int flen, const unsigned char *from,
                         unsigned char *to, RSA *rsa, int padding);
-int RSA_public_decrypt(int flen, const unsigned char *from,
+__attribute__ ((visibility ("default"))) int RSA_public_decrypt(int flen, const unsigned char *from,
                        unsigned char *to, RSA *rsa, int padding);
-int RSA_private_decrypt(int flen, const unsigned char *from,
+__attribute__ ((visibility ("default"))) int RSA_private_decrypt(int flen, const unsigned char *from,
                         unsigned char *to, RSA *rsa, int padding);
-void RSA_free(RSA *r);
+__attribute__ ((visibility ("default"))) void RSA_free(RSA *r);
 /* "up" the RSA object's reference count */
-int RSA_up_ref(RSA *r);
+__attribute__ ((visibility ("default"))) int RSA_up_ref(RSA *r);
 
-int RSA_flags(const RSA *r);
+__attribute__ ((visibility ("default"))) int RSA_flags(const RSA *r);
 
-void RSA_set_default_method(const RSA_METHOD *meth);
-const RSA_METHOD *RSA_get_default_method(void);
-const RSA_METHOD *RSA_get_method(const RSA *rsa);
-int RSA_set_method(RSA *rsa, const RSA_METHOD *meth);
+__attribute__ ((visibility ("default"))) void RSA_set_default_method(const RSA_METHOD *meth);
+__attribute__ ((visibility ("default"))) const RSA_METHOD *RSA_get_default_method(void);
+__attribute__ ((visibility ("default"))) const RSA_METHOD *RSA_get_method(const RSA *rsa);
+__attribute__ ((visibility ("default"))) int RSA_set_method(RSA *rsa, const RSA_METHOD *meth);
 
 /* This function needs the memory locking malloc callbacks to be installed */
-int RSA_memory_lock(RSA *r);
+__attribute__ ((visibility ("default"))) int RSA_memory_lock(RSA *r);
 
 /* these are the actual SSLeay RSA functions */
-const RSA_METHOD *RSA_PKCS1_SSLeay(void);
+__attribute__ ((visibility ("default"))) const RSA_METHOD *RSA_PKCS1_SSLeay(void);
 
-const RSA_METHOD *RSA_null_method(void);
+__attribute__ ((visibility ("default"))) const RSA_METHOD *RSA_null_method(void);
 
-DECLARE_ASN1_ENCODE_FUNCTIONS_const(RSA, RSAPublicKey)
-DECLARE_ASN1_ENCODE_FUNCTIONS_const(RSA, RSAPrivateKey)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_ASN1_ENCODE_FUNCTIONS_const(RSA, RSAPublicKey)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_ASN1_ENCODE_FUNCTIONS_const(RSA, RSAPrivateKey)
 
 typedef struct rsa_pss_params_st {
     X509_ALGOR *hashAlgorithm;
@@ -369,7 +369,7 @@ typedef struct rsa_pss_params_st {
     ASN1_INTEGER *trailerField;
 } RSA_PSS_PARAMS;
 
-DECLARE_ASN1_FUNCTIONS(RSA_PSS_PARAMS)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_ASN1_FUNCTIONS(RSA_PSS_PARAMS)
 
 typedef struct rsa_oaep_params_st {
     X509_ALGOR *hashFunc;
@@ -377,28 +377,28 @@ typedef struct rsa_oaep_params_st {
     X509_ALGOR *pSourceFunc;
 } RSA_OAEP_PARAMS;
 
-DECLARE_ASN1_FUNCTIONS(RSA_OAEP_PARAMS)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_ASN1_FUNCTIONS(RSA_OAEP_PARAMS)
 
 # ifndef OPENSSL_NO_FP_API
-int RSA_print_fp(FILE *fp, const RSA *r, int offset);
+__attribute__ ((visibility ("default"))) int RSA_print_fp(FILE *fp, const RSA *r, int offset);
 # endif
 
 # ifndef OPENSSL_NO_BIO
-int RSA_print(BIO *bp, const RSA *r, int offset);
+__attribute__ ((visibility ("default"))) int RSA_print(BIO *bp, const RSA *r, int offset);
 # endif
 
 # ifndef OPENSSL_NO_RC4
-int i2d_RSA_NET(const RSA *a, unsigned char **pp,
+__attribute__ ((visibility ("default"))) int i2d_RSA_NET(const RSA *a, unsigned char **pp,
                 int (*cb) (char *buf, int len, const char *prompt,
                            int verify), int sgckey);
-RSA *d2i_RSA_NET(RSA **a, const unsigned char **pp, long length,
+__attribute__ ((visibility ("default"))) RSA *d2i_RSA_NET(RSA **a, const unsigned char **pp, long length,
                  int (*cb) (char *buf, int len, const char *prompt,
                             int verify), int sgckey);
 
-int i2d_Netscape_RSA(const RSA *a, unsigned char **pp,
+__attribute__ ((visibility ("default"))) int i2d_Netscape_RSA(const RSA *a, unsigned char **pp,
                      int (*cb) (char *buf, int len, const char *prompt,
                                 int verify));
-RSA *d2i_Netscape_RSA(RSA **a, const unsigned char **pp, long length,
+__attribute__ ((visibility ("default"))) RSA *d2i_Netscape_RSA(RSA **a, const unsigned char **pp, long length,
                       int (*cb) (char *buf, int len, const char *prompt,
                                  int verify));
 # endif
@@ -407,91 +407,91 @@ RSA *d2i_Netscape_RSA(RSA **a, const unsigned char **pp, long length,
  * The following 2 functions sign and verify a X509_SIG ASN1 object inside
  * PKCS#1 padded RSA encryption
  */
-int RSA_sign(int type, const unsigned char *m, unsigned int m_length,
+__attribute__ ((visibility ("default"))) int RSA_sign(int type, const unsigned char *m, unsigned int m_length,
              unsigned char *sigret, unsigned int *siglen, RSA *rsa);
-int RSA_verify(int type, const unsigned char *m, unsigned int m_length,
+__attribute__ ((visibility ("default"))) int RSA_verify(int type, const unsigned char *m, unsigned int m_length,
                const unsigned char *sigbuf, unsigned int siglen, RSA *rsa);
 
 /*
  * The following 2 function sign and verify a ASN1_OCTET_STRING object inside
  * PKCS#1 padded RSA encryption
  */
-int RSA_sign_ASN1_OCTET_STRING(int type,
+__attribute__ ((visibility ("default"))) int RSA_sign_ASN1_OCTET_STRING(int type,
                                const unsigned char *m, unsigned int m_length,
                                unsigned char *sigret, unsigned int *siglen,
                                RSA *rsa);
-int RSA_verify_ASN1_OCTET_STRING(int type, const unsigned char *m,
+__attribute__ ((visibility ("default"))) int RSA_verify_ASN1_OCTET_STRING(int type, const unsigned char *m,
                                  unsigned int m_length, unsigned char *sigbuf,
                                  unsigned int siglen, RSA *rsa);
 
-int RSA_blinding_on(RSA *rsa, BN_CTX *ctx);
-void RSA_blinding_off(RSA *rsa);
-BN_BLINDING *RSA_setup_blinding(RSA *rsa, BN_CTX *ctx);
+__attribute__ ((visibility ("default"))) int RSA_blinding_on(RSA *rsa, BN_CTX *ctx);
+__attribute__ ((visibility ("default"))) void RSA_blinding_off(RSA *rsa);
+__attribute__ ((visibility ("default"))) BN_BLINDING *RSA_setup_blinding(RSA *rsa, BN_CTX *ctx);
 
-int RSA_padding_add_PKCS1_type_1(unsigned char *to, int tlen,
+__attribute__ ((visibility ("default"))) int RSA_padding_add_PKCS1_type_1(unsigned char *to, int tlen,
                                  const unsigned char *f, int fl);
-int RSA_padding_check_PKCS1_type_1(unsigned char *to, int tlen,
+__attribute__ ((visibility ("default"))) int RSA_padding_check_PKCS1_type_1(unsigned char *to, int tlen,
                                    const unsigned char *f, int fl,
                                    int rsa_len);
-int RSA_padding_add_PKCS1_type_2(unsigned char *to, int tlen,
+__attribute__ ((visibility ("default"))) int RSA_padding_add_PKCS1_type_2(unsigned char *to, int tlen,
                                  const unsigned char *f, int fl);
-int RSA_padding_check_PKCS1_type_2(unsigned char *to, int tlen,
+__attribute__ ((visibility ("default"))) int RSA_padding_check_PKCS1_type_2(unsigned char *to, int tlen,
                                    const unsigned char *f, int fl,
                                    int rsa_len);
-int PKCS1_MGF1(unsigned char *mask, long len, const unsigned char *seed,
+__attribute__ ((visibility ("default"))) int PKCS1_MGF1(unsigned char *mask, long len, const unsigned char *seed,
                long seedlen, const EVP_MD *dgst);
-int RSA_padding_add_PKCS1_OAEP(unsigned char *to, int tlen,
+__attribute__ ((visibility ("default"))) int RSA_padding_add_PKCS1_OAEP(unsigned char *to, int tlen,
                                const unsigned char *f, int fl,
                                const unsigned char *p, int pl);
-int RSA_padding_check_PKCS1_OAEP(unsigned char *to, int tlen,
+__attribute__ ((visibility ("default"))) int RSA_padding_check_PKCS1_OAEP(unsigned char *to, int tlen,
                                  const unsigned char *f, int fl, int rsa_len,
                                  const unsigned char *p, int pl);
-int RSA_padding_add_PKCS1_OAEP_mgf1(unsigned char *to, int tlen,
+__attribute__ ((visibility ("default"))) int RSA_padding_add_PKCS1_OAEP_mgf1(unsigned char *to, int tlen,
                                     const unsigned char *from, int flen,
                                     const unsigned char *param, int plen,
                                     const EVP_MD *md, const EVP_MD *mgf1md);
-int RSA_padding_check_PKCS1_OAEP_mgf1(unsigned char *to, int tlen,
+__attribute__ ((visibility ("default"))) int RSA_padding_check_PKCS1_OAEP_mgf1(unsigned char *to, int tlen,
                                       const unsigned char *from, int flen,
                                       int num, const unsigned char *param,
                                       int plen, const EVP_MD *md,
                                       const EVP_MD *mgf1md);
-int RSA_padding_add_SSLv23(unsigned char *to, int tlen,
+__attribute__ ((visibility ("default"))) int RSA_padding_add_SSLv23(unsigned char *to, int tlen,
                            const unsigned char *f, int fl);
-int RSA_padding_check_SSLv23(unsigned char *to, int tlen,
+__attribute__ ((visibility ("default"))) int RSA_padding_check_SSLv23(unsigned char *to, int tlen,
                              const unsigned char *f, int fl, int rsa_len);
-int RSA_padding_add_none(unsigned char *to, int tlen, const unsigned char *f,
+__attribute__ ((visibility ("default"))) int RSA_padding_add_none(unsigned char *to, int tlen, const unsigned char *f,
                          int fl);
-int RSA_padding_check_none(unsigned char *to, int tlen,
+__attribute__ ((visibility ("default"))) int RSA_padding_check_none(unsigned char *to, int tlen,
                            const unsigned char *f, int fl, int rsa_len);
-int RSA_padding_add_X931(unsigned char *to, int tlen, const unsigned char *f,
+__attribute__ ((visibility ("default"))) int RSA_padding_add_X931(unsigned char *to, int tlen, const unsigned char *f,
                          int fl);
-int RSA_padding_check_X931(unsigned char *to, int tlen,
+__attribute__ ((visibility ("default"))) int RSA_padding_check_X931(unsigned char *to, int tlen,
                            const unsigned char *f, int fl, int rsa_len);
-int RSA_X931_hash_id(int nid);
+__attribute__ ((visibility ("default"))) int RSA_X931_hash_id(int nid);
 
-int RSA_verify_PKCS1_PSS(RSA *rsa, const unsigned char *mHash,
+__attribute__ ((visibility ("default"))) int RSA_verify_PKCS1_PSS(RSA *rsa, const unsigned char *mHash,
                          const EVP_MD *Hash, const unsigned char *EM,
                          int sLen);
-int RSA_padding_add_PKCS1_PSS(RSA *rsa, unsigned char *EM,
+__attribute__ ((visibility ("default"))) int RSA_padding_add_PKCS1_PSS(RSA *rsa, unsigned char *EM,
                               const unsigned char *mHash, const EVP_MD *Hash,
                               int sLen);
 
-int RSA_verify_PKCS1_PSS_mgf1(RSA *rsa, const unsigned char *mHash,
+__attribute__ ((visibility ("default"))) int RSA_verify_PKCS1_PSS_mgf1(RSA *rsa, const unsigned char *mHash,
                               const EVP_MD *Hash, const EVP_MD *mgf1Hash,
                               const unsigned char *EM, int sLen);
 
-int RSA_padding_add_PKCS1_PSS_mgf1(RSA *rsa, unsigned char *EM,
+__attribute__ ((visibility ("default"))) int RSA_padding_add_PKCS1_PSS_mgf1(RSA *rsa, unsigned char *EM,
                                    const unsigned char *mHash,
                                    const EVP_MD *Hash, const EVP_MD *mgf1Hash,
                                    int sLen);
 
-int RSA_get_ex_new_index(long argl, void *argp, CRYPTO_EX_new *new_func,
+__attribute__ ((visibility ("default"))) int RSA_get_ex_new_index(long argl, void *argp, CRYPTO_EX_new *new_func,
                          CRYPTO_EX_dup *dup_func, CRYPTO_EX_free *free_func);
-int RSA_set_ex_data(RSA *r, int idx, void *arg);
-void *RSA_get_ex_data(const RSA *r, int idx);
+__attribute__ ((visibility ("default"))) int RSA_set_ex_data(RSA *r, int idx, void *arg);
+__attribute__ ((visibility ("default"))) void *RSA_get_ex_data(const RSA *r, int idx);
 
-RSA *RSAPublicKey_dup(RSA *rsa);
-RSA *RSAPrivateKey_dup(RSA *rsa);
+__attribute__ ((visibility ("default"))) RSA *RSAPublicKey_dup(RSA *rsa);
+__attribute__ ((visibility ("default"))) RSA *RSAPrivateKey_dup(RSA *rsa);
 
 /*
  * If this flag is set the RSA method is FIPS compliant and can be used in
@@ -520,7 +520,7 @@ RSA *RSAPrivateKey_dup(RSA *rsa);
  * The following lines are auto generated by the script mkerr.pl. Any changes
  * made after this point may be overwritten when the script is next run.
  */
-void ERR_load_RSA_strings(void);
+__attribute__ ((visibility ("default"))) void ERR_load_RSA_strings(void);
 
 /* Error codes for the RSA functions. */
 

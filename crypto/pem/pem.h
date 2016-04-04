@@ -392,137 +392,137 @@ typedef int pem_password_cb (char *buf, int size, int rwflag, void *userdata);
 typedef int pem_password_cb (char *buf, int size, int rwflag);
 # endif
 
-int PEM_get_EVP_CIPHER_INFO(char *header, EVP_CIPHER_INFO *cipher);
-int PEM_do_header(EVP_CIPHER_INFO *cipher, unsigned char *data, long *len,
+__attribute__ ((visibility ("default"))) int PEM_get_EVP_CIPHER_INFO(char *header, EVP_CIPHER_INFO *cipher);
+__attribute__ ((visibility ("default"))) int PEM_do_header(EVP_CIPHER_INFO *cipher, unsigned char *data, long *len,
                   pem_password_cb *callback, void *u);
 
 # ifndef OPENSSL_NO_BIO
-int PEM_read_bio(BIO *bp, char **name, char **header,
+__attribute__ ((visibility ("default"))) int PEM_read_bio(BIO *bp, char **name, char **header,
                  unsigned char **data, long *len);
-int PEM_write_bio(BIO *bp, const char *name, const char *hdr,
+__attribute__ ((visibility ("default"))) int PEM_write_bio(BIO *bp, const char *name, const char *hdr,
                   const unsigned char *data, long len);
-int PEM_bytes_read_bio(unsigned char **pdata, long *plen, char **pnm,
+__attribute__ ((visibility ("default"))) int PEM_bytes_read_bio(unsigned char **pdata, long *plen, char **pnm,
                        const char *name, BIO *bp, pem_password_cb *cb,
                        void *u);
-void *PEM_ASN1_read_bio(d2i_of_void *d2i, const char *name, BIO *bp, void **x,
+__attribute__ ((visibility ("default"))) void *PEM_ASN1_read_bio(d2i_of_void *d2i, const char *name, BIO *bp, void **x,
                         pem_password_cb *cb, void *u);
-int PEM_ASN1_write_bio(i2d_of_void *i2d, const char *name, BIO *bp, void *x,
+__attribute__ ((visibility ("default"))) int PEM_ASN1_write_bio(i2d_of_void *i2d, const char *name, BIO *bp, void *x,
                        const EVP_CIPHER *enc, unsigned char *kstr, int klen,
                        pem_password_cb *cb, void *u);
 
-STACK_OF(X509_INFO) *PEM_X509_INFO_read_bio(BIO *bp, STACK_OF(X509_INFO) *sk,
+__attribute__ ((visibility ("default"))) STACK_OF(X509_INFO) *PEM_X509_INFO_read_bio(BIO *bp, STACK_OF(X509_INFO) *sk,
                                             pem_password_cb *cb, void *u);
-int PEM_X509_INFO_write_bio(BIO *bp, X509_INFO *xi, EVP_CIPHER *enc,
+__attribute__ ((visibility ("default"))) int PEM_X509_INFO_write_bio(BIO *bp, X509_INFO *xi, EVP_CIPHER *enc,
                             unsigned char *kstr, int klen,
                             pem_password_cb *cd, void *u);
 # endif
 
-int PEM_read(FILE *fp, char **name, char **header,
+__attribute__ ((visibility ("default"))) int PEM_read(FILE *fp, char **name, char **header,
              unsigned char **data, long *len);
-int PEM_write(FILE *fp, const char *name, const char *hdr,
+__attribute__ ((visibility ("default"))) int PEM_write(FILE *fp, const char *name, const char *hdr,
               const unsigned char *data, long len);
-void *PEM_ASN1_read(d2i_of_void *d2i, const char *name, FILE *fp, void **x,
+__attribute__ ((visibility ("default"))) void *PEM_ASN1_read(d2i_of_void *d2i, const char *name, FILE *fp, void **x,
                     pem_password_cb *cb, void *u);
-int PEM_ASN1_write(i2d_of_void *i2d, const char *name, FILE *fp,
+__attribute__ ((visibility ("default"))) int PEM_ASN1_write(i2d_of_void *i2d, const char *name, FILE *fp,
                    void *x, const EVP_CIPHER *enc, unsigned char *kstr,
                    int klen, pem_password_cb *callback, void *u);
-STACK_OF(X509_INFO) *PEM_X509_INFO_read(FILE *fp, STACK_OF(X509_INFO) *sk,
+__attribute__ ((visibility ("default"))) STACK_OF(X509_INFO) *PEM_X509_INFO_read(FILE *fp, STACK_OF(X509_INFO) *sk,
                                         pem_password_cb *cb, void *u);
 
-int PEM_SealInit(PEM_ENCODE_SEAL_CTX *ctx, EVP_CIPHER *type,
+__attribute__ ((visibility ("default"))) int PEM_SealInit(PEM_ENCODE_SEAL_CTX *ctx, EVP_CIPHER *type,
                  EVP_MD *md_type, unsigned char **ek, int *ekl,
                  unsigned char *iv, EVP_PKEY **pubk, int npubk);
-void PEM_SealUpdate(PEM_ENCODE_SEAL_CTX *ctx, unsigned char *out, int *outl,
+__attribute__ ((visibility ("default"))) void PEM_SealUpdate(PEM_ENCODE_SEAL_CTX *ctx, unsigned char *out, int *outl,
                     unsigned char *in, int inl);
-int PEM_SealFinal(PEM_ENCODE_SEAL_CTX *ctx, unsigned char *sig, int *sigl,
+__attribute__ ((visibility ("default"))) int PEM_SealFinal(PEM_ENCODE_SEAL_CTX *ctx, unsigned char *sig, int *sigl,
                   unsigned char *out, int *outl, EVP_PKEY *priv);
 
-void PEM_SignInit(EVP_MD_CTX *ctx, EVP_MD *type);
-void PEM_SignUpdate(EVP_MD_CTX *ctx, unsigned char *d, unsigned int cnt);
-int PEM_SignFinal(EVP_MD_CTX *ctx, unsigned char *sigret,
+__attribute__ ((visibility ("default"))) void PEM_SignInit(EVP_MD_CTX *ctx, EVP_MD *type);
+__attribute__ ((visibility ("default"))) void PEM_SignUpdate(EVP_MD_CTX *ctx, unsigned char *d, unsigned int cnt);
+__attribute__ ((visibility ("default"))) int PEM_SignFinal(EVP_MD_CTX *ctx, unsigned char *sigret,
                   unsigned int *siglen, EVP_PKEY *pkey);
 
-int PEM_def_callback(char *buf, int num, int w, void *key);
-void PEM_proc_type(char *buf, int type);
-void PEM_dek_info(char *buf, const char *type, int len, char *str);
+__attribute__ ((visibility ("default"))) int PEM_def_callback(char *buf, int num, int w, void *key);
+__attribute__ ((visibility ("default"))) void PEM_proc_type(char *buf, int type);
+__attribute__ ((visibility ("default"))) void PEM_dek_info(char *buf, const char *type, int len, char *str);
 
 # include <openssl/symhacks.h>
 
-DECLARE_PEM_rw(X509, X509)
-DECLARE_PEM_rw(X509_AUX, X509)
-DECLARE_PEM_rw(X509_CERT_PAIR, X509_CERT_PAIR)
-DECLARE_PEM_rw(X509_REQ, X509_REQ)
-DECLARE_PEM_write(X509_REQ_NEW, X509_REQ)
-DECLARE_PEM_rw(X509_CRL, X509_CRL)
-DECLARE_PEM_rw(PKCS7, PKCS7)
-DECLARE_PEM_rw(NETSCAPE_CERT_SEQUENCE, NETSCAPE_CERT_SEQUENCE)
-DECLARE_PEM_rw(PKCS8, X509_SIG)
-DECLARE_PEM_rw(PKCS8_PRIV_KEY_INFO, PKCS8_PRIV_KEY_INFO)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_PEM_rw(X509, X509)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_PEM_rw(X509_AUX, X509)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_PEM_rw(X509_CERT_PAIR, X509_CERT_PAIR)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_PEM_rw(X509_REQ, X509_REQ)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_PEM_write(X509_REQ_NEW, X509_REQ)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_PEM_rw(X509_CRL, X509_CRL)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_PEM_rw(PKCS7, PKCS7)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_PEM_rw(NETSCAPE_CERT_SEQUENCE, NETSCAPE_CERT_SEQUENCE)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_PEM_rw(PKCS8, X509_SIG)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_PEM_rw(PKCS8_PRIV_KEY_INFO, PKCS8_PRIV_KEY_INFO)
 # ifndef OPENSSL_NO_RSA
-DECLARE_PEM_rw_cb(RSAPrivateKey, RSA)
-DECLARE_PEM_rw_const(RSAPublicKey, RSA)
-DECLARE_PEM_rw(RSA_PUBKEY, RSA)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_PEM_rw_cb(RSAPrivateKey, RSA)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_PEM_rw_const(RSAPublicKey, RSA)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_PEM_rw(RSA_PUBKEY, RSA)
 # endif
 # ifndef OPENSSL_NO_DSA
-DECLARE_PEM_rw_cb(DSAPrivateKey, DSA)
-DECLARE_PEM_rw(DSA_PUBKEY, DSA)
-DECLARE_PEM_rw_const(DSAparams, DSA)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_PEM_rw_cb(DSAPrivateKey, DSA)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_PEM_rw(DSA_PUBKEY, DSA)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_PEM_rw_const(DSAparams, DSA)
 # endif
 # ifndef OPENSSL_NO_EC
-DECLARE_PEM_rw_const(ECPKParameters, EC_GROUP)
-DECLARE_PEM_rw_cb(ECPrivateKey, EC_KEY)
-DECLARE_PEM_rw(EC_PUBKEY, EC_KEY)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_PEM_rw_const(ECPKParameters, EC_GROUP)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_PEM_rw_cb(ECPrivateKey, EC_KEY)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_PEM_rw(EC_PUBKEY, EC_KEY)
 # endif
 # ifndef OPENSSL_NO_DH
-DECLARE_PEM_rw_const(DHparams, DH)
-DECLARE_PEM_write_const(DHxparams, DH)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_PEM_rw_const(DHparams, DH)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_PEM_write_const(DHxparams, DH)
 # endif
-DECLARE_PEM_rw_cb(PrivateKey, EVP_PKEY)
-DECLARE_PEM_rw(PUBKEY, EVP_PKEY)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_PEM_rw_cb(PrivateKey, EVP_PKEY)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_PEM_rw(PUBKEY, EVP_PKEY)
 
-int PEM_write_bio_PKCS8PrivateKey_nid(BIO *bp, EVP_PKEY *x, int nid,
+__attribute__ ((visibility ("default"))) int PEM_write_bio_PKCS8PrivateKey_nid(BIO *bp, EVP_PKEY *x, int nid,
                                       char *kstr, int klen,
                                       pem_password_cb *cb, void *u);
-int PEM_write_bio_PKCS8PrivateKey(BIO *, EVP_PKEY *, const EVP_CIPHER *,
+__attribute__ ((visibility ("default"))) int PEM_write_bio_PKCS8PrivateKey(BIO *, EVP_PKEY *, const EVP_CIPHER *,
                                   char *, int, pem_password_cb *, void *);
-int i2d_PKCS8PrivateKey_bio(BIO *bp, EVP_PKEY *x, const EVP_CIPHER *enc,
+__attribute__ ((visibility ("default"))) int i2d_PKCS8PrivateKey_bio(BIO *bp, EVP_PKEY *x, const EVP_CIPHER *enc,
                             char *kstr, int klen,
                             pem_password_cb *cb, void *u);
-int i2d_PKCS8PrivateKey_nid_bio(BIO *bp, EVP_PKEY *x, int nid,
+__attribute__ ((visibility ("default"))) int i2d_PKCS8PrivateKey_nid_bio(BIO *bp, EVP_PKEY *x, int nid,
                                 char *kstr, int klen,
                                 pem_password_cb *cb, void *u);
-EVP_PKEY *d2i_PKCS8PrivateKey_bio(BIO *bp, EVP_PKEY **x, pem_password_cb *cb,
+__attribute__ ((visibility ("default"))) EVP_PKEY *d2i_PKCS8PrivateKey_bio(BIO *bp, EVP_PKEY **x, pem_password_cb *cb,
                                   void *u);
 
-int i2d_PKCS8PrivateKey_fp(FILE *fp, EVP_PKEY *x, const EVP_CIPHER *enc,
+__attribute__ ((visibility ("default"))) int i2d_PKCS8PrivateKey_fp(FILE *fp, EVP_PKEY *x, const EVP_CIPHER *enc,
                            char *kstr, int klen,
                            pem_password_cb *cb, void *u);
-int i2d_PKCS8PrivateKey_nid_fp(FILE *fp, EVP_PKEY *x, int nid,
+__attribute__ ((visibility ("default"))) int i2d_PKCS8PrivateKey_nid_fp(FILE *fp, EVP_PKEY *x, int nid,
                                char *kstr, int klen,
                                pem_password_cb *cb, void *u);
-int PEM_write_PKCS8PrivateKey_nid(FILE *fp, EVP_PKEY *x, int nid,
+__attribute__ ((visibility ("default"))) int PEM_write_PKCS8PrivateKey_nid(FILE *fp, EVP_PKEY *x, int nid,
                                   char *kstr, int klen,
                                   pem_password_cb *cb, void *u);
 
-EVP_PKEY *d2i_PKCS8PrivateKey_fp(FILE *fp, EVP_PKEY **x, pem_password_cb *cb,
+__attribute__ ((visibility ("default"))) EVP_PKEY *d2i_PKCS8PrivateKey_fp(FILE *fp, EVP_PKEY **x, pem_password_cb *cb,
                                  void *u);
 
-int PEM_write_PKCS8PrivateKey(FILE *fp, EVP_PKEY *x, const EVP_CIPHER *enc,
+__attribute__ ((visibility ("default"))) int PEM_write_PKCS8PrivateKey(FILE *fp, EVP_PKEY *x, const EVP_CIPHER *enc,
                               char *kstr, int klen, pem_password_cb *cd,
                               void *u);
 
-EVP_PKEY *PEM_read_bio_Parameters(BIO *bp, EVP_PKEY **x);
-int PEM_write_bio_Parameters(BIO *bp, EVP_PKEY *x);
+__attribute__ ((visibility ("default"))) EVP_PKEY *PEM_read_bio_Parameters(BIO *bp, EVP_PKEY **x);
+__attribute__ ((visibility ("default"))) int PEM_write_bio_Parameters(BIO *bp, EVP_PKEY *x);
 
-EVP_PKEY *b2i_PrivateKey(const unsigned char **in, long length);
-EVP_PKEY *b2i_PublicKey(const unsigned char **in, long length);
-EVP_PKEY *b2i_PrivateKey_bio(BIO *in);
-EVP_PKEY *b2i_PublicKey_bio(BIO *in);
-int i2b_PrivateKey_bio(BIO *out, EVP_PKEY *pk);
-int i2b_PublicKey_bio(BIO *out, EVP_PKEY *pk);
+__attribute__ ((visibility ("default"))) EVP_PKEY *b2i_PrivateKey(const unsigned char **in, long length);
+__attribute__ ((visibility ("default"))) EVP_PKEY *b2i_PublicKey(const unsigned char **in, long length);
+__attribute__ ((visibility ("default"))) EVP_PKEY *b2i_PrivateKey_bio(BIO *in);
+__attribute__ ((visibility ("default"))) EVP_PKEY *b2i_PublicKey_bio(BIO *in);
+__attribute__ ((visibility ("default"))) int i2b_PrivateKey_bio(BIO *out, EVP_PKEY *pk);
+__attribute__ ((visibility ("default"))) int i2b_PublicKey_bio(BIO *out, EVP_PKEY *pk);
 # ifndef OPENSSL_NO_RC4
-EVP_PKEY *b2i_PVK_bio(BIO *in, pem_password_cb *cb, void *u);
-int i2b_PVK_bio(BIO *out, EVP_PKEY *pk, int enclevel,
+__attribute__ ((visibility ("default"))) EVP_PKEY *b2i_PVK_bio(BIO *in, pem_password_cb *cb, void *u);
+__attribute__ ((visibility ("default"))) int i2b_PVK_bio(BIO *out, EVP_PKEY *pk, int enclevel,
                 pem_password_cb *cb, void *u);
 # endif
 
@@ -531,7 +531,7 @@ int i2b_PVK_bio(BIO *out, EVP_PKEY *pk, int enclevel,
  * The following lines are auto generated by the script mkerr.pl. Any changes
  * made after this point may be overwritten when the script is next run.
  */
-void ERR_load_PEM_strings(void);
+__attribute__ ((visibility ("default"))) void ERR_load_PEM_strings(void);
 
 /* Error codes for the PEM functions. */
 

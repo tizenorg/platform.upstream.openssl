@@ -238,12 +238,12 @@ struct dso_st {
     char *loaded_filename;
 };
 
-DSO *DSO_new(void);
-DSO *DSO_new_method(DSO_METHOD *method);
-int DSO_free(DSO *dso);
-int DSO_flags(DSO *dso);
-int DSO_up_ref(DSO *dso);
-long DSO_ctrl(DSO *dso, int cmd, long larg, void *parg);
+__attribute__ ((visibility ("default"))) DSO *DSO_new(void);
+__attribute__ ((visibility ("default"))) DSO *DSO_new_method(DSO_METHOD *method);
+__attribute__ ((visibility ("default"))) int DSO_free(DSO *dso);
+__attribute__ ((visibility ("default"))) int DSO_flags(DSO *dso);
+__attribute__ ((visibility ("default"))) int DSO_up_ref(DSO *dso);
+__attribute__ ((visibility ("default"))) long DSO_ctrl(DSO *dso, int cmd, long larg, void *parg);
 
 /*
  * This function sets the DSO's name_converter callback. If it is non-NULL,
@@ -251,14 +251,14 @@ long DSO_ctrl(DSO *dso, int cmd, long larg, void *parg);
  * oldcb is non-NULL then it is set to the function pointer value being
  * replaced. Return value is non-zero for success.
  */
-int DSO_set_name_converter(DSO *dso, DSO_NAME_CONVERTER_FUNC cb,
+__attribute__ ((visibility ("default"))) int DSO_set_name_converter(DSO *dso, DSO_NAME_CONVERTER_FUNC cb,
                            DSO_NAME_CONVERTER_FUNC *oldcb);
 /*
  * These functions can be used to get/set the platform-independant filename
  * used for a DSO. NB: set will fail if the DSO is already loaded.
  */
-const char *DSO_get_filename(DSO *dso);
-int DSO_set_filename(DSO *dso, const char *filename);
+__attribute__ ((visibility ("default"))) const char *DSO_get_filename(DSO *dso);
+__attribute__ ((visibility ("default"))) int DSO_set_filename(DSO *dso, const char *filename);
 /*
  * This function will invoke the DSO's name_converter callback to translate a
  * filename, or if the callback isn't set it will instead use the DSO_METHOD's
@@ -269,14 +269,14 @@ int DSO_set_filename(DSO *dso, const char *filename);
  * that caller-created DSO_METHODs can do the same thing. A non-NULL return
  * value will need to be OPENSSL_free()'d.
  */
-char *DSO_convert_filename(DSO *dso, const char *filename);
+__attribute__ ((visibility ("default"))) char *DSO_convert_filename(DSO *dso, const char *filename);
 /*
  * This function will invoke the DSO's merger callback to merge two file
  * specifications, or if the callback isn't set it will instead use the
  * DSO_METHOD's merger.  A non-NULL return value will need to be
  * OPENSSL_free()'d.
  */
-char *DSO_merge(DSO *dso, const char *filespec1, const char *filespec2);
+__attribute__ ((visibility ("default"))) char *DSO_merge(DSO *dso, const char *filespec1, const char *filespec2);
 /*
  * If the DSO is currently loaded, this returns the filename that it was
  * loaded under, otherwise it returns NULL. So it is also useful as a test as
@@ -286,12 +286,12 @@ char *DSO_merge(DSO *dso, const char *filespec1, const char *filespec2);
  * and/or without the aid of the converters) before settling on the one it
  * actually loaded.
  */
-const char *DSO_get_loaded_filename(DSO *dso);
+__attribute__ ((visibility ("default"))) const char *DSO_get_loaded_filename(DSO *dso);
 
-void DSO_set_default_method(DSO_METHOD *meth);
-DSO_METHOD *DSO_get_default_method(void);
-DSO_METHOD *DSO_get_method(DSO *dso);
-DSO_METHOD *DSO_set_method(DSO *dso, DSO_METHOD *meth);
+__attribute__ ((visibility ("default"))) void DSO_set_default_method(DSO_METHOD *meth);
+__attribute__ ((visibility ("default"))) DSO_METHOD *DSO_get_default_method(void);
+__attribute__ ((visibility ("default"))) DSO_METHOD *DSO_get_method(DSO *dso);
+__attribute__ ((visibility ("default"))) DSO_METHOD *DSO_set_method(DSO *dso, DSO_METHOD *meth);
 
 /*
  * The all-singing all-dancing load function, you normally pass NULL for the
@@ -300,46 +300,46 @@ DSO_METHOD *DSO_set_method(DSO *dso, DSO_METHOD *meth);
  * constructed DSO after its init() function but before the load operation.
  * If 'dso' is non-NULL, 'flags' is ignored.
  */
-DSO *DSO_load(DSO *dso, const char *filename, DSO_METHOD *meth, int flags);
+__attribute__ ((visibility ("default"))) DSO *DSO_load(DSO *dso, const char *filename, DSO_METHOD *meth, int flags);
 
 /* This function binds to a variable inside a shared library. */
-void *DSO_bind_var(DSO *dso, const char *symname);
+__attribute__ ((visibility ("default"))) void *DSO_bind_var(DSO *dso, const char *symname);
 
 /* This function binds to a function inside a shared library. */
-DSO_FUNC_TYPE DSO_bind_func(DSO *dso, const char *symname);
+__attribute__ ((visibility ("default"))) DSO_FUNC_TYPE DSO_bind_func(DSO *dso, const char *symname);
 
 /*
  * This method is the default, but will beg, borrow, or steal whatever method
  * should be the default on any particular platform (including
  * DSO_METH_null() if necessary).
  */
-DSO_METHOD *DSO_METHOD_openssl(void);
+__attribute__ ((visibility ("default"))) DSO_METHOD *DSO_METHOD_openssl(void);
 
 /*
  * This method is defined for all platforms - if a platform has no DSO
  * support then this will be the only method!
  */
-DSO_METHOD *DSO_METHOD_null(void);
+__attribute__ ((visibility ("default"))) DSO_METHOD *DSO_METHOD_null(void);
 
 /*
  * If DSO_DLFCN is defined, the standard dlfcn.h-style functions (dlopen,
  * dlclose, dlsym, etc) will be used and incorporated into this method. If
  * not, this method will return NULL.
  */
-DSO_METHOD *DSO_METHOD_dlfcn(void);
+__attribute__ ((visibility ("default"))) DSO_METHOD *DSO_METHOD_dlfcn(void);
 
 /*
  * If DSO_DL is defined, the standard dl.h-style functions (shl_load,
  * shl_unload, shl_findsym, etc) will be used and incorporated into this
  * method. If not, this method will return NULL.
  */
-DSO_METHOD *DSO_METHOD_dl(void);
+__attribute__ ((visibility ("default"))) DSO_METHOD *DSO_METHOD_dl(void);
 
 /* If WIN32 is defined, use DLLs. If not, return NULL. */
-DSO_METHOD *DSO_METHOD_win32(void);
+__attribute__ ((visibility ("default"))) DSO_METHOD *DSO_METHOD_win32(void);
 
 /* If VMS is defined, use shared images. If not, return NULL. */
-DSO_METHOD *DSO_METHOD_vms(void);
+__attribute__ ((visibility ("default"))) DSO_METHOD *DSO_METHOD_vms(void);
 
 /*
  * This function writes null-terminated pathname of DSO module containing
@@ -350,7 +350,7 @@ DSO_METHOD *DSO_METHOD_vms(void);
  * pathname of cryptolib itself is returned. Negative or zero return value
  * denotes error.
  */
-int DSO_pathbyaddr(void *addr, char *path, int sz);
+__attribute__ ((visibility ("default"))) int DSO_pathbyaddr(void *addr, char *path, int sz);
 
 /*
  * This function should be used with caution! It looks up symbols in *all*
@@ -361,17 +361,17 @@ int DSO_pathbyaddr(void *addr, char *path, int sz);
  * OS-specific details such as libc.so.versioning or where does it actually
  * reside: in libc itself or libsocket.
  */
-void *DSO_global_lookup(const char *name);
+__attribute__ ((visibility ("default"))) void *DSO_global_lookup(const char *name);
 
 /* If BeOS is defined, use shared images. If not, return NULL. */
-DSO_METHOD *DSO_METHOD_beos(void);
+__attribute__ ((visibility ("default"))) DSO_METHOD *DSO_METHOD_beos(void);
 
 /* BEGIN ERROR CODES */
 /*
  * The following lines are auto generated by the script mkerr.pl. Any changes
  * made after this point may be overwritten when the script is next run.
  */
-void ERR_load_DSO_strings(void);
+__attribute__ ((visibility ("default"))) void ERR_load_DSO_strings(void);
 
 /* Error codes for the DSO functions. */
 

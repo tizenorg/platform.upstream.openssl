@@ -123,33 +123,33 @@ typedef struct DES_ks {
 # define DES_ede2_ofb64_encrypt(i,o,l,k1,k2,iv,n) \
         DES_ede3_ofb64_encrypt((i),(o),(l),(k1),(k2),(k1),(iv),(n))
 
-OPENSSL_DECLARE_GLOBAL(int, DES_check_key); /* defaults to false */
+__attribute__ ((visibility ("default"))) OPENSSL_DECLARE_GLOBAL(int, DES_check_key); /* defaults to false */
 # define DES_check_key OPENSSL_GLOBAL_REF(DES_check_key)
-OPENSSL_DECLARE_GLOBAL(int, DES_rw_mode); /* defaults to DES_PCBC_MODE */
+__attribute__ ((visibility ("default"))) OPENSSL_DECLARE_GLOBAL(int, DES_rw_mode); /* defaults to DES_PCBC_MODE */
 # define DES_rw_mode OPENSSL_GLOBAL_REF(DES_rw_mode)
 
-const char *DES_options(void);
-void DES_ecb3_encrypt(const_DES_cblock *input, DES_cblock *output,
+__attribute__ ((visibility ("default"))) const char *DES_options(void);
+__attribute__ ((visibility ("default"))) void DES_ecb3_encrypt(const_DES_cblock *input, DES_cblock *output,
                       DES_key_schedule *ks1, DES_key_schedule *ks2,
                       DES_key_schedule *ks3, int enc);
-DES_LONG DES_cbc_cksum(const unsigned char *input, DES_cblock *output,
+__attribute__ ((visibility ("default"))) DES_LONG DES_cbc_cksum(const unsigned char *input, DES_cblock *output,
                        long length, DES_key_schedule *schedule,
                        const_DES_cblock *ivec);
 /* DES_cbc_encrypt does not update the IV!  Use DES_ncbc_encrypt instead. */
-void DES_cbc_encrypt(const unsigned char *input, unsigned char *output,
+__attribute__ ((visibility ("default"))) void DES_cbc_encrypt(const unsigned char *input, unsigned char *output,
                      long length, DES_key_schedule *schedule,
                      DES_cblock *ivec, int enc);
-void DES_ncbc_encrypt(const unsigned char *input, unsigned char *output,
+__attribute__ ((visibility ("default"))) void DES_ncbc_encrypt(const unsigned char *input, unsigned char *output,
                       long length, DES_key_schedule *schedule,
                       DES_cblock *ivec, int enc);
-void DES_xcbc_encrypt(const unsigned char *input, unsigned char *output,
+__attribute__ ((visibility ("default"))) void DES_xcbc_encrypt(const unsigned char *input, unsigned char *output,
                       long length, DES_key_schedule *schedule,
                       DES_cblock *ivec, const_DES_cblock *inw,
                       const_DES_cblock *outw, int enc);
-void DES_cfb_encrypt(const unsigned char *in, unsigned char *out, int numbits,
+__attribute__ ((visibility ("default"))) void DES_cfb_encrypt(const unsigned char *in, unsigned char *out, int numbits,
                      long length, DES_key_schedule *schedule,
                      DES_cblock *ivec, int enc);
-void DES_ecb_encrypt(const_DES_cblock *input, DES_cblock *output,
+__attribute__ ((visibility ("default"))) void DES_ecb_encrypt(const_DES_cblock *input, DES_cblock *output,
                      DES_key_schedule *ks, int enc);
 
 /*
@@ -162,7 +162,7 @@ void DES_ecb_encrypt(const_DES_cblock *input, DES_cblock *output,
  * long's and ks is the DES_key_schedule to use.  enc, is non zero specifies
  * encryption, zero if decryption.
  */
-void DES_encrypt1(DES_LONG *data, DES_key_schedule *ks, int enc);
+__attribute__ ((visibility ("default"))) void DES_encrypt1(DES_LONG *data, DES_key_schedule *ks, int enc);
 
 /*
  * This functions is the same as DES_encrypt1() except that the DES initial
@@ -172,30 +172,30 @@ void DES_encrypt1(DES_LONG *data, DES_key_schedule *ks, int enc);
  * DES_encrypt2() DES_encrypt2() FP() is the same as DES_encrypt1()
  * DES_encrypt1() DES_encrypt1() except faster :-).
  */
-void DES_encrypt2(DES_LONG *data, DES_key_schedule *ks, int enc);
+__attribute__ ((visibility ("default"))) void DES_encrypt2(DES_LONG *data, DES_key_schedule *ks, int enc);
 
-void DES_encrypt3(DES_LONG *data, DES_key_schedule *ks1,
+__attribute__ ((visibility ("default"))) void DES_encrypt3(DES_LONG *data, DES_key_schedule *ks1,
                   DES_key_schedule *ks2, DES_key_schedule *ks3);
-void DES_decrypt3(DES_LONG *data, DES_key_schedule *ks1,
+__attribute__ ((visibility ("default"))) void DES_decrypt3(DES_LONG *data, DES_key_schedule *ks1,
                   DES_key_schedule *ks2, DES_key_schedule *ks3);
-void DES_ede3_cbc_encrypt(const unsigned char *input, unsigned char *output,
+__attribute__ ((visibility ("default"))) void DES_ede3_cbc_encrypt(const unsigned char *input, unsigned char *output,
                           long length,
                           DES_key_schedule *ks1, DES_key_schedule *ks2,
                           DES_key_schedule *ks3, DES_cblock *ivec, int enc);
-void DES_ede3_cbcm_encrypt(const unsigned char *in, unsigned char *out,
+__attribute__ ((visibility ("default"))) void DES_ede3_cbcm_encrypt(const unsigned char *in, unsigned char *out,
                            long length,
                            DES_key_schedule *ks1, DES_key_schedule *ks2,
                            DES_key_schedule *ks3,
                            DES_cblock *ivec1, DES_cblock *ivec2, int enc);
-void DES_ede3_cfb64_encrypt(const unsigned char *in, unsigned char *out,
+__attribute__ ((visibility ("default"))) void DES_ede3_cfb64_encrypt(const unsigned char *in, unsigned char *out,
                             long length, DES_key_schedule *ks1,
                             DES_key_schedule *ks2, DES_key_schedule *ks3,
                             DES_cblock *ivec, int *num, int enc);
-void DES_ede3_cfb_encrypt(const unsigned char *in, unsigned char *out,
+__attribute__ ((visibility ("default"))) void DES_ede3_cfb_encrypt(const unsigned char *in, unsigned char *out,
                           int numbits, long length, DES_key_schedule *ks1,
                           DES_key_schedule *ks2, DES_key_schedule *ks3,
                           DES_cblock *ivec, int enc);
-void DES_ede3_ofb64_encrypt(const unsigned char *in, unsigned char *out,
+__attribute__ ((visibility ("default"))) void DES_ede3_ofb64_encrypt(const unsigned char *in, unsigned char *out,
                             long length, DES_key_schedule *ks1,
                             DES_key_schedule *ks2, DES_key_schedule *ks3,
                             DES_cblock *ivec, int *num);
@@ -204,48 +204,48 @@ void DES_xwhite_in2out(const_DES_cblock *DES_key, const_DES_cblock *in_white,
                        DES_cblock *out_white);
 # endif
 
-int DES_enc_read(int fd, void *buf, int len, DES_key_schedule *sched,
+__attribute__ ((visibility ("default"))) int DES_enc_read(int fd, void *buf, int len, DES_key_schedule *sched,
                  DES_cblock *iv);
-int DES_enc_write(int fd, const void *buf, int len, DES_key_schedule *sched,
+__attribute__ ((visibility ("default"))) int DES_enc_write(int fd, const void *buf, int len, DES_key_schedule *sched,
                   DES_cblock *iv);
-char *DES_fcrypt(const char *buf, const char *salt, char *ret);
-char *DES_crypt(const char *buf, const char *salt);
-void DES_ofb_encrypt(const unsigned char *in, unsigned char *out, int numbits,
+__attribute__ ((visibility ("default"))) char *DES_fcrypt(const char *buf, const char *salt, char *ret);
+__attribute__ ((visibility ("default"))) char *DES_crypt(const char *buf, const char *salt);
+__attribute__ ((visibility ("default"))) void DES_ofb_encrypt(const unsigned char *in, unsigned char *out, int numbits,
                      long length, DES_key_schedule *schedule,
                      DES_cblock *ivec);
-void DES_pcbc_encrypt(const unsigned char *input, unsigned char *output,
+__attribute__ ((visibility ("default"))) void DES_pcbc_encrypt(const unsigned char *input, unsigned char *output,
                       long length, DES_key_schedule *schedule,
                       DES_cblock *ivec, int enc);
-DES_LONG DES_quad_cksum(const unsigned char *input, DES_cblock output[],
+__attribute__ ((visibility ("default"))) DES_LONG DES_quad_cksum(const unsigned char *input, DES_cblock output[],
                         long length, int out_count, DES_cblock *seed);
-int DES_random_key(DES_cblock *ret);
-void DES_set_odd_parity(DES_cblock *key);
-int DES_check_key_parity(const_DES_cblock *key);
-int DES_is_weak_key(const_DES_cblock *key);
+__attribute__ ((visibility ("default"))) int DES_random_key(DES_cblock *ret);
+__attribute__ ((visibility ("default"))) void DES_set_odd_parity(DES_cblock *key);
+__attribute__ ((visibility ("default"))) int DES_check_key_parity(const_DES_cblock *key);
+__attribute__ ((visibility ("default"))) int DES_is_weak_key(const_DES_cblock *key);
 /*
  * DES_set_key (= set_key = DES_key_sched = key_sched) calls
  * DES_set_key_checked if global variable DES_check_key is set,
  * DES_set_key_unchecked otherwise.
  */
-int DES_set_key(const_DES_cblock *key, DES_key_schedule *schedule);
-int DES_key_sched(const_DES_cblock *key, DES_key_schedule *schedule);
-int DES_set_key_checked(const_DES_cblock *key, DES_key_schedule *schedule);
-void DES_set_key_unchecked(const_DES_cblock *key, DES_key_schedule *schedule);
+__attribute__ ((visibility ("default"))) int DES_set_key(const_DES_cblock *key, DES_key_schedule *schedule);
+__attribute__ ((visibility ("default"))) int DES_key_sched(const_DES_cblock *key, DES_key_schedule *schedule);
+__attribute__ ((visibility ("default"))) int DES_set_key_checked(const_DES_cblock *key, DES_key_schedule *schedule);
+__attribute__ ((visibility ("default"))) void DES_set_key_unchecked(const_DES_cblock *key, DES_key_schedule *schedule);
 # ifdef OPENSSL_FIPS
 void private_DES_set_key_unchecked(const_DES_cblock *key,
                                    DES_key_schedule *schedule);
 # endif
-void DES_string_to_key(const char *str, DES_cblock *key);
-void DES_string_to_2keys(const char *str, DES_cblock *key1, DES_cblock *key2);
-void DES_cfb64_encrypt(const unsigned char *in, unsigned char *out,
+__attribute__ ((visibility ("default"))) void DES_string_to_key(const char *str, DES_cblock *key);
+__attribute__ ((visibility ("default"))) void DES_string_to_2keys(const char *str, DES_cblock *key1, DES_cblock *key2);
+__attribute__ ((visibility ("default"))) void DES_cfb64_encrypt(const unsigned char *in, unsigned char *out,
                        long length, DES_key_schedule *schedule,
                        DES_cblock *ivec, int *num, int enc);
-void DES_ofb64_encrypt(const unsigned char *in, unsigned char *out,
+__attribute__ ((visibility ("default"))) void DES_ofb64_encrypt(const unsigned char *in, unsigned char *out,
                        long length, DES_key_schedule *schedule,
                        DES_cblock *ivec, int *num);
 
-int DES_read_password(DES_cblock *key, const char *prompt, int verify);
-int DES_read_2passwords(DES_cblock *key1, DES_cblock *key2,
+__attribute__ ((visibility ("default"))) int DES_read_password(DES_cblock *key, const char *prompt, int verify);
+__attribute__ ((visibility ("default"))) int DES_read_2passwords(DES_cblock *key1, DES_cblock *key2,
                         const char *prompt, int verify);
 
 # define DES_fixup_key_parity DES_set_odd_parity

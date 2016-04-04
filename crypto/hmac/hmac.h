@@ -83,24 +83,24 @@ typedef struct hmac_ctx_st {
 
 # define HMAC_size(e)    (EVP_MD_size((e)->md))
 
-void HMAC_CTX_init(HMAC_CTX *ctx);
-void HMAC_CTX_cleanup(HMAC_CTX *ctx);
+__attribute__ ((visibility ("default"))) void HMAC_CTX_init(HMAC_CTX *ctx);
+__attribute__ ((visibility ("default"))) void HMAC_CTX_cleanup(HMAC_CTX *ctx);
 
 /* deprecated */
 # define HMAC_cleanup(ctx) HMAC_CTX_cleanup(ctx)
 
 /* deprecated */
-int HMAC_Init(HMAC_CTX *ctx, const void *key, int len, const EVP_MD *md);
-int HMAC_Init_ex(HMAC_CTX *ctx, const void *key, int len,
+__attribute__ ((visibility ("default"))) int HMAC_Init(HMAC_CTX *ctx, const void *key, int len, const EVP_MD *md);
+__attribute__ ((visibility ("default"))) int HMAC_Init_ex(HMAC_CTX *ctx, const void *key, int len,
                  const EVP_MD *md, ENGINE *impl);
-int HMAC_Update(HMAC_CTX *ctx, const unsigned char *data, size_t len);
-int HMAC_Final(HMAC_CTX *ctx, unsigned char *md, unsigned int *len);
-unsigned char *HMAC(const EVP_MD *evp_md, const void *key, int key_len,
+__attribute__ ((visibility ("default"))) int HMAC_Update(HMAC_CTX *ctx, const unsigned char *data, size_t len);
+__attribute__ ((visibility ("default"))) int HMAC_Final(HMAC_CTX *ctx, unsigned char *md, unsigned int *len);
+__attribute__ ((visibility ("default"))) unsigned char *HMAC(const EVP_MD *evp_md, const void *key, int key_len,
                     const unsigned char *d, size_t n, unsigned char *md,
                     unsigned int *md_len);
-int HMAC_CTX_copy(HMAC_CTX *dctx, HMAC_CTX *sctx);
+__attribute__ ((visibility ("default"))) int HMAC_CTX_copy(HMAC_CTX *dctx, HMAC_CTX *sctx);
 
-void HMAC_CTX_set_flags(HMAC_CTX *ctx, unsigned long flags);
+__attribute__ ((visibility ("default"))) void HMAC_CTX_set_flags(HMAC_CTX *ctx, unsigned long flags);
 
 #ifdef  __cplusplus
 }

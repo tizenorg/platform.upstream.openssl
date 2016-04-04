@@ -95,7 +95,7 @@ typedef struct SRP_user_pwd_st {
 
 DECLARE_STACK_OF(SRP_user_pwd)
 
-void SRP_user_pwd_free(SRP_user_pwd *user_pwd);
+__attribute__ ((visibility ("default"))) void SRP_user_pwd_free(SRP_user_pwd *user_pwd);
 
 typedef struct SRP_VBASE_st {
     STACK_OF(SRP_user_pwd) *users_pwd;
@@ -117,18 +117,18 @@ typedef struct SRP_gN_st {
 
 DECLARE_STACK_OF(SRP_gN)
 
-SRP_VBASE *SRP_VBASE_new(char *seed_key);
-int SRP_VBASE_free(SRP_VBASE *vb);
-int SRP_VBASE_init(SRP_VBASE *vb, char *verifier_file);
+__attribute__ ((visibility ("default"))) SRP_VBASE *SRP_VBASE_new(char *seed_key);
+__attribute__ ((visibility ("default"))) int SRP_VBASE_free(SRP_VBASE *vb);
+__attribute__ ((visibility ("default"))) int SRP_VBASE_init(SRP_VBASE *vb, char *verifier_file);
 
 /* This method ignores the configured seed and fails for an unknown user. */
-SRP_user_pwd *SRP_VBASE_get_by_user(SRP_VBASE *vb, char *username);
+__attribute__ ((visibility ("default"))) SRP_user_pwd *SRP_VBASE_get_by_user(SRP_VBASE *vb, char *username);
 /* NOTE: unlike in SRP_VBASE_get_by_user, caller owns the returned pointer.*/
-SRP_user_pwd *SRP_VBASE_get1_by_user(SRP_VBASE *vb, char *username);
+__attribute__ ((visibility ("default"))) SRP_user_pwd *SRP_VBASE_get1_by_user(SRP_VBASE *vb, char *username);
 
-char *SRP_create_verifier(const char *user, const char *pass, char **salt,
+__attribute__ ((visibility ("default"))) char *SRP_create_verifier(const char *user, const char *pass, char **salt,
                           char **verifier, const char *N, const char *g);
-int SRP_create_verifier_BN(const char *user, const char *pass, BIGNUM **salt,
+__attribute__ ((visibility ("default"))) int SRP_create_verifier_BN(const char *user, const char *pass, BIGNUM **salt,
                            BIGNUM **verifier, BIGNUM *N, BIGNUM *g);
 
 #  define SRP_NO_ERROR 0
@@ -152,22 +152,22 @@ int SRP_create_verifier_BN(const char *user, const char *pass, BIGNUM **salt,
 #  define DB_SRP_MODIF    'v'
 
 /* see srp.c */
-char *SRP_check_known_gN_param(BIGNUM *g, BIGNUM *N);
-SRP_gN *SRP_get_default_gN(const char *id);
+__attribute__ ((visibility ("default"))) char *SRP_check_known_gN_param(BIGNUM *g, BIGNUM *N);
+__attribute__ ((visibility ("default"))) SRP_gN *SRP_get_default_gN(const char *id);
 
 /* server side .... */
-BIGNUM *SRP_Calc_server_key(BIGNUM *A, BIGNUM *v, BIGNUM *u, BIGNUM *b,
+__attribute__ ((visibility ("default"))) BIGNUM *SRP_Calc_server_key(BIGNUM *A, BIGNUM *v, BIGNUM *u, BIGNUM *b,
                             BIGNUM *N);
-BIGNUM *SRP_Calc_B(BIGNUM *b, BIGNUM *N, BIGNUM *g, BIGNUM *v);
-int SRP_Verify_A_mod_N(BIGNUM *A, BIGNUM *N);
-BIGNUM *SRP_Calc_u(BIGNUM *A, BIGNUM *B, BIGNUM *N);
+__attribute__ ((visibility ("default"))) BIGNUM *SRP_Calc_B(BIGNUM *b, BIGNUM *N, BIGNUM *g, BIGNUM *v);
+__attribute__ ((visibility ("default"))) int SRP_Verify_A_mod_N(BIGNUM *A, BIGNUM *N);
+__attribute__ ((visibility ("default"))) BIGNUM *SRP_Calc_u(BIGNUM *A, BIGNUM *B, BIGNUM *N);
 
 /* client side .... */
-BIGNUM *SRP_Calc_x(BIGNUM *s, const char *user, const char *pass);
-BIGNUM *SRP_Calc_A(BIGNUM *a, BIGNUM *N, BIGNUM *g);
-BIGNUM *SRP_Calc_client_key(BIGNUM *N, BIGNUM *B, BIGNUM *g, BIGNUM *x,
+__attribute__ ((visibility ("default"))) BIGNUM *SRP_Calc_x(BIGNUM *s, const char *user, const char *pass);
+__attribute__ ((visibility ("default"))) BIGNUM *SRP_Calc_A(BIGNUM *a, BIGNUM *N, BIGNUM *g);
+__attribute__ ((visibility ("default"))) BIGNUM *SRP_Calc_client_key(BIGNUM *N, BIGNUM *B, BIGNUM *g, BIGNUM *x,
                             BIGNUM *a, BIGNUM *u);
-int SRP_Verify_B_mod_N(BIGNUM *B, BIGNUM *N);
+__attribute__ ((visibility ("default"))) int SRP_Verify_B_mod_N(BIGNUM *B, BIGNUM *N);
 
 #  define SRP_MINIMAL_N 1024
 

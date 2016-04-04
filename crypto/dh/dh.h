@@ -189,59 +189,59 @@ struct dh_st {
 # define d2i_DHparams_bio(bp,x) ASN1_d2i_bio_of(DH,DH_new,d2i_DHparams,bp,x)
 # define i2d_DHparams_bio(bp,x) ASN1_i2d_bio_of_const(DH,i2d_DHparams,bp,x)
 
-DH *DHparams_dup(DH *);
+__attribute__ ((visibility ("default"))) DH *DHparams_dup(DH *);
 
-const DH_METHOD *DH_OpenSSL(void);
+__attribute__ ((visibility ("default"))) const DH_METHOD *DH_OpenSSL(void);
 
-void DH_set_default_method(const DH_METHOD *meth);
-const DH_METHOD *DH_get_default_method(void);
-int DH_set_method(DH *dh, const DH_METHOD *meth);
-DH *DH_new_method(ENGINE *engine);
+__attribute__ ((visibility ("default"))) void DH_set_default_method(const DH_METHOD *meth);
+__attribute__ ((visibility ("default"))) const DH_METHOD *DH_get_default_method(void);
+__attribute__ ((visibility ("default"))) int DH_set_method(DH *dh, const DH_METHOD *meth);
+__attribute__ ((visibility ("default"))) DH *DH_new_method(ENGINE *engine);
 
-DH *DH_new(void);
-void DH_free(DH *dh);
-int DH_up_ref(DH *dh);
-int DH_size(const DH *dh);
-int DH_get_ex_new_index(long argl, void *argp, CRYPTO_EX_new *new_func,
+__attribute__ ((visibility ("default"))) DH *DH_new(void);
+__attribute__ ((visibility ("default"))) void DH_free(DH *dh);
+__attribute__ ((visibility ("default"))) int DH_up_ref(DH *dh);
+__attribute__ ((visibility ("default"))) int DH_size(const DH *dh);
+__attribute__ ((visibility ("default"))) int DH_get_ex_new_index(long argl, void *argp, CRYPTO_EX_new *new_func,
                         CRYPTO_EX_dup *dup_func, CRYPTO_EX_free *free_func);
-int DH_set_ex_data(DH *d, int idx, void *arg);
-void *DH_get_ex_data(DH *d, int idx);
+__attribute__ ((visibility ("default"))) int DH_set_ex_data(DH *d, int idx, void *arg);
+__attribute__ ((visibility ("default"))) void *DH_get_ex_data(DH *d, int idx);
 
 /* Deprecated version */
 # ifndef OPENSSL_NO_DEPRECATED
-DH *DH_generate_parameters(int prime_len, int generator,
+__attribute__ ((visibility ("default"))) DH *DH_generate_parameters(int prime_len, int generator,
                            void (*callback) (int, int, void *), void *cb_arg);
 # endif                         /* !defined(OPENSSL_NO_DEPRECATED) */
 
 /* New version */
-int DH_generate_parameters_ex(DH *dh, int prime_len, int generator,
+__attribute__ ((visibility ("default"))) int DH_generate_parameters_ex(DH *dh, int prime_len, int generator,
                               BN_GENCB *cb);
 
-int DH_check(const DH *dh, int *codes);
-int DH_check_pub_key(const DH *dh, const BIGNUM *pub_key, int *codes);
-int DH_generate_key(DH *dh);
-int DH_compute_key(unsigned char *key, const BIGNUM *pub_key, DH *dh);
-int DH_compute_key_padded(unsigned char *key, const BIGNUM *pub_key, DH *dh);
-DH *d2i_DHparams(DH **a, const unsigned char **pp, long length);
-int i2d_DHparams(const DH *a, unsigned char **pp);
-DH *d2i_DHxparams(DH **a, const unsigned char **pp, long length);
-int i2d_DHxparams(const DH *a, unsigned char **pp);
+__attribute__ ((visibility ("default"))) int DH_check(const DH *dh, int *codes);
+__attribute__ ((visibility ("default"))) int DH_check_pub_key(const DH *dh, const BIGNUM *pub_key, int *codes);
+__attribute__ ((visibility ("default"))) int DH_generate_key(DH *dh);
+__attribute__ ((visibility ("default"))) int DH_compute_key(unsigned char *key, const BIGNUM *pub_key, DH *dh);
+__attribute__ ((visibility ("default"))) int DH_compute_key_padded(unsigned char *key, const BIGNUM *pub_key, DH *dh);
+__attribute__ ((visibility ("default"))) DH *d2i_DHparams(DH **a, const unsigned char **pp, long length);
+__attribute__ ((visibility ("default"))) int i2d_DHparams(const DH *a, unsigned char **pp);
+__attribute__ ((visibility ("default"))) DH *d2i_DHxparams(DH **a, const unsigned char **pp, long length);
+__attribute__ ((visibility ("default"))) int i2d_DHxparams(const DH *a, unsigned char **pp);
 # ifndef OPENSSL_NO_FP_API
-int DHparams_print_fp(FILE *fp, const DH *x);
+__attribute__ ((visibility ("default"))) int DHparams_print_fp(FILE *fp, const DH *x);
 # endif
 # ifndef OPENSSL_NO_BIO
-int DHparams_print(BIO *bp, const DH *x);
+__attribute__ ((visibility ("default"))) int DHparams_print(BIO *bp, const DH *x);
 # else
 int DHparams_print(char *bp, const DH *x);
 # endif
 
 /* RFC 5114 parameters */
-DH *DH_get_1024_160(void);
-DH *DH_get_2048_224(void);
-DH *DH_get_2048_256(void);
+__attribute__ ((visibility ("default"))) DH *DH_get_1024_160(void);
+__attribute__ ((visibility ("default"))) DH *DH_get_2048_224(void);
+__attribute__ ((visibility ("default"))) DH *DH_get_2048_256(void);
 
 /* RFC2631 KDF */
-int DH_KDF_X9_42(unsigned char *out, size_t outlen,
+__attribute__ ((visibility ("default"))) int DH_KDF_X9_42(unsigned char *out, size_t outlen,
                  const unsigned char *Z, size_t Zlen,
                  ASN1_OBJECT *key_oid,
                  const unsigned char *ukm, size_t ukmlen, const EVP_MD *md);
@@ -344,7 +344,7 @@ int DH_KDF_X9_42(unsigned char *out, size_t outlen,
  * The following lines are auto generated by the script mkerr.pl. Any changes
  * made after this point may be overwritten when the script is next run.
  */
-void ERR_load_DH_strings(void);
+__attribute__ ((visibility ("default"))) void ERR_load_DH_strings(void);
 
 /* Error codes for the DH functions. */
 

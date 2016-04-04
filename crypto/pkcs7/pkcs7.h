@@ -255,124 +255,124 @@ DECLARE_PKCS12_STACK_OF(PKCS7)
 # define SMIME_BINARY    PKCS7_BINARY
 # define SMIME_NOATTR    PKCS7_NOATTR
 
-DECLARE_ASN1_FUNCTIONS(PKCS7_ISSUER_AND_SERIAL)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_ASN1_FUNCTIONS(PKCS7_ISSUER_AND_SERIAL)
 
-int PKCS7_ISSUER_AND_SERIAL_digest(PKCS7_ISSUER_AND_SERIAL *data,
+__attribute__ ((visibility ("default"))) int PKCS7_ISSUER_AND_SERIAL_digest(PKCS7_ISSUER_AND_SERIAL *data,
                                    const EVP_MD *type, unsigned char *md,
                                    unsigned int *len);
 # ifndef OPENSSL_NO_FP_API
-PKCS7 *d2i_PKCS7_fp(FILE *fp, PKCS7 **p7);
-int i2d_PKCS7_fp(FILE *fp, PKCS7 *p7);
+__attribute__ ((visibility ("default"))) PKCS7 *d2i_PKCS7_fp(FILE *fp, PKCS7 **p7);
+__attribute__ ((visibility ("default"))) int i2d_PKCS7_fp(FILE *fp, PKCS7 *p7);
 # endif
-PKCS7 *PKCS7_dup(PKCS7 *p7);
-PKCS7 *d2i_PKCS7_bio(BIO *bp, PKCS7 **p7);
-int i2d_PKCS7_bio(BIO *bp, PKCS7 *p7);
-int i2d_PKCS7_bio_stream(BIO *out, PKCS7 *p7, BIO *in, int flags);
-int PEM_write_bio_PKCS7_stream(BIO *out, PKCS7 *p7, BIO *in, int flags);
+__attribute__ ((visibility ("default"))) PKCS7 *PKCS7_dup(PKCS7 *p7);
+__attribute__ ((visibility ("default"))) PKCS7 *d2i_PKCS7_bio(BIO *bp, PKCS7 **p7);
+__attribute__ ((visibility ("default"))) int i2d_PKCS7_bio(BIO *bp, PKCS7 *p7);
+__attribute__ ((visibility ("default"))) int i2d_PKCS7_bio_stream(BIO *out, PKCS7 *p7, BIO *in, int flags);
+__attribute__ ((visibility ("default"))) int PEM_write_bio_PKCS7_stream(BIO *out, PKCS7 *p7, BIO *in, int flags);
 
-DECLARE_ASN1_FUNCTIONS(PKCS7_SIGNER_INFO)
-DECLARE_ASN1_FUNCTIONS(PKCS7_RECIP_INFO)
-DECLARE_ASN1_FUNCTIONS(PKCS7_SIGNED)
-DECLARE_ASN1_FUNCTIONS(PKCS7_ENC_CONTENT)
-DECLARE_ASN1_FUNCTIONS(PKCS7_ENVELOPE)
-DECLARE_ASN1_FUNCTIONS(PKCS7_SIGN_ENVELOPE)
-DECLARE_ASN1_FUNCTIONS(PKCS7_DIGEST)
-DECLARE_ASN1_FUNCTIONS(PKCS7_ENCRYPT)
-DECLARE_ASN1_FUNCTIONS(PKCS7)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_ASN1_FUNCTIONS(PKCS7_SIGNER_INFO)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_ASN1_FUNCTIONS(PKCS7_RECIP_INFO)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_ASN1_FUNCTIONS(PKCS7_SIGNED)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_ASN1_FUNCTIONS(PKCS7_ENC_CONTENT)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_ASN1_FUNCTIONS(PKCS7_ENVELOPE)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_ASN1_FUNCTIONS(PKCS7_SIGN_ENVELOPE)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_ASN1_FUNCTIONS(PKCS7_DIGEST)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_ASN1_FUNCTIONS(PKCS7_ENCRYPT)
+__attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) __attribute__ ((visibility ("default"))) DECLARE_ASN1_FUNCTIONS(PKCS7)
 
-DECLARE_ASN1_ITEM(PKCS7_ATTR_SIGN)
-DECLARE_ASN1_ITEM(PKCS7_ATTR_VERIFY)
+__attribute__ ((visibility ("default"))) DECLARE_ASN1_ITEM(PKCS7_ATTR_SIGN)
+__attribute__ ((visibility ("default"))) DECLARE_ASN1_ITEM(PKCS7_ATTR_VERIFY)
 
-DECLARE_ASN1_NDEF_FUNCTION(PKCS7)
-DECLARE_ASN1_PRINT_FUNCTION(PKCS7)
+__attribute__ ((visibility ("default"))) DECLARE_ASN1_NDEF_FUNCTION(PKCS7)
+__attribute__ ((visibility ("default"))) DECLARE_ASN1_PRINT_FUNCTION(PKCS7)
 
-long PKCS7_ctrl(PKCS7 *p7, int cmd, long larg, char *parg);
+__attribute__ ((visibility ("default"))) long PKCS7_ctrl(PKCS7 *p7, int cmd, long larg, char *parg);
 
-int PKCS7_set_type(PKCS7 *p7, int type);
-int PKCS7_set0_type_other(PKCS7 *p7, int type, ASN1_TYPE *other);
-int PKCS7_set_content(PKCS7 *p7, PKCS7 *p7_data);
-int PKCS7_SIGNER_INFO_set(PKCS7_SIGNER_INFO *p7i, X509 *x509, EVP_PKEY *pkey,
+__attribute__ ((visibility ("default"))) int PKCS7_set_type(PKCS7 *p7, int type);
+__attribute__ ((visibility ("default"))) int PKCS7_set0_type_other(PKCS7 *p7, int type, ASN1_TYPE *other);
+__attribute__ ((visibility ("default"))) int PKCS7_set_content(PKCS7 *p7, PKCS7 *p7_data);
+__attribute__ ((visibility ("default"))) int PKCS7_SIGNER_INFO_set(PKCS7_SIGNER_INFO *p7i, X509 *x509, EVP_PKEY *pkey,
                           const EVP_MD *dgst);
-int PKCS7_SIGNER_INFO_sign(PKCS7_SIGNER_INFO *si);
-int PKCS7_add_signer(PKCS7 *p7, PKCS7_SIGNER_INFO *p7i);
-int PKCS7_add_certificate(PKCS7 *p7, X509 *x509);
-int PKCS7_add_crl(PKCS7 *p7, X509_CRL *x509);
-int PKCS7_content_new(PKCS7 *p7, int nid);
-int PKCS7_dataVerify(X509_STORE *cert_store, X509_STORE_CTX *ctx,
+__attribute__ ((visibility ("default"))) int PKCS7_SIGNER_INFO_sign(PKCS7_SIGNER_INFO *si);
+__attribute__ ((visibility ("default"))) int PKCS7_add_signer(PKCS7 *p7, PKCS7_SIGNER_INFO *p7i);
+__attribute__ ((visibility ("default"))) int PKCS7_add_certificate(PKCS7 *p7, X509 *x509);
+__attribute__ ((visibility ("default"))) int PKCS7_add_crl(PKCS7 *p7, X509_CRL *x509);
+__attribute__ ((visibility ("default"))) int PKCS7_content_new(PKCS7 *p7, int nid);
+__attribute__ ((visibility ("default"))) int PKCS7_dataVerify(X509_STORE *cert_store, X509_STORE_CTX *ctx,
                      BIO *bio, PKCS7 *p7, PKCS7_SIGNER_INFO *si);
-int PKCS7_signatureVerify(BIO *bio, PKCS7 *p7, PKCS7_SIGNER_INFO *si,
+__attribute__ ((visibility ("default"))) int PKCS7_signatureVerify(BIO *bio, PKCS7 *p7, PKCS7_SIGNER_INFO *si,
                           X509 *x509);
 
-BIO *PKCS7_dataInit(PKCS7 *p7, BIO *bio);
-int PKCS7_dataFinal(PKCS7 *p7, BIO *bio);
-BIO *PKCS7_dataDecode(PKCS7 *p7, EVP_PKEY *pkey, BIO *in_bio, X509 *pcert);
+__attribute__ ((visibility ("default"))) BIO *PKCS7_dataInit(PKCS7 *p7, BIO *bio);
+__attribute__ ((visibility ("default"))) int PKCS7_dataFinal(PKCS7 *p7, BIO *bio);
+__attribute__ ((visibility ("default"))) BIO *PKCS7_dataDecode(PKCS7 *p7, EVP_PKEY *pkey, BIO *in_bio, X509 *pcert);
 
-PKCS7_SIGNER_INFO *PKCS7_add_signature(PKCS7 *p7, X509 *x509,
+__attribute__ ((visibility ("default"))) PKCS7_SIGNER_INFO *PKCS7_add_signature(PKCS7 *p7, X509 *x509,
                                        EVP_PKEY *pkey, const EVP_MD *dgst);
-X509 *PKCS7_cert_from_signer_info(PKCS7 *p7, PKCS7_SIGNER_INFO *si);
-int PKCS7_set_digest(PKCS7 *p7, const EVP_MD *md);
-STACK_OF(PKCS7_SIGNER_INFO) *PKCS7_get_signer_info(PKCS7 *p7);
+__attribute__ ((visibility ("default"))) X509 *PKCS7_cert_from_signer_info(PKCS7 *p7, PKCS7_SIGNER_INFO *si);
+__attribute__ ((visibility ("default"))) int PKCS7_set_digest(PKCS7 *p7, const EVP_MD *md);
+__attribute__ ((visibility ("default"))) STACK_OF(PKCS7_SIGNER_INFO) *PKCS7_get_signer_info(PKCS7 *p7);
 
-PKCS7_RECIP_INFO *PKCS7_add_recipient(PKCS7 *p7, X509 *x509);
-void PKCS7_SIGNER_INFO_get0_algs(PKCS7_SIGNER_INFO *si, EVP_PKEY **pk,
+__attribute__ ((visibility ("default"))) PKCS7_RECIP_INFO *PKCS7_add_recipient(PKCS7 *p7, X509 *x509);
+__attribute__ ((visibility ("default"))) void PKCS7_SIGNER_INFO_get0_algs(PKCS7_SIGNER_INFO *si, EVP_PKEY **pk,
                                  X509_ALGOR **pdig, X509_ALGOR **psig);
-void PKCS7_RECIP_INFO_get0_alg(PKCS7_RECIP_INFO *ri, X509_ALGOR **penc);
-int PKCS7_add_recipient_info(PKCS7 *p7, PKCS7_RECIP_INFO *ri);
-int PKCS7_RECIP_INFO_set(PKCS7_RECIP_INFO *p7i, X509 *x509);
-int PKCS7_set_cipher(PKCS7 *p7, const EVP_CIPHER *cipher);
-int PKCS7_stream(unsigned char ***boundary, PKCS7 *p7);
+__attribute__ ((visibility ("default"))) void PKCS7_RECIP_INFO_get0_alg(PKCS7_RECIP_INFO *ri, X509_ALGOR **penc);
+__attribute__ ((visibility ("default"))) int PKCS7_add_recipient_info(PKCS7 *p7, PKCS7_RECIP_INFO *ri);
+__attribute__ ((visibility ("default"))) int PKCS7_RECIP_INFO_set(PKCS7_RECIP_INFO *p7i, X509 *x509);
+__attribute__ ((visibility ("default"))) int PKCS7_set_cipher(PKCS7 *p7, const EVP_CIPHER *cipher);
+__attribute__ ((visibility ("default"))) int PKCS7_stream(unsigned char ***boundary, PKCS7 *p7);
 
-PKCS7_ISSUER_AND_SERIAL *PKCS7_get_issuer_and_serial(PKCS7 *p7, int idx);
-ASN1_OCTET_STRING *PKCS7_digest_from_attributes(STACK_OF(X509_ATTRIBUTE) *sk);
-int PKCS7_add_signed_attribute(PKCS7_SIGNER_INFO *p7si, int nid, int type,
+__attribute__ ((visibility ("default"))) PKCS7_ISSUER_AND_SERIAL *PKCS7_get_issuer_and_serial(PKCS7 *p7, int idx);
+__attribute__ ((visibility ("default"))) ASN1_OCTET_STRING *PKCS7_digest_from_attributes(STACK_OF(X509_ATTRIBUTE) *sk);
+__attribute__ ((visibility ("default"))) int PKCS7_add_signed_attribute(PKCS7_SIGNER_INFO *p7si, int nid, int type,
                                void *data);
-int PKCS7_add_attribute(PKCS7_SIGNER_INFO *p7si, int nid, int atrtype,
+__attribute__ ((visibility ("default"))) int PKCS7_add_attribute(PKCS7_SIGNER_INFO *p7si, int nid, int atrtype,
                         void *value);
-ASN1_TYPE *PKCS7_get_attribute(PKCS7_SIGNER_INFO *si, int nid);
-ASN1_TYPE *PKCS7_get_signed_attribute(PKCS7_SIGNER_INFO *si, int nid);
-int PKCS7_set_signed_attributes(PKCS7_SIGNER_INFO *p7si,
+__attribute__ ((visibility ("default"))) ASN1_TYPE *PKCS7_get_attribute(PKCS7_SIGNER_INFO *si, int nid);
+__attribute__ ((visibility ("default"))) ASN1_TYPE *PKCS7_get_signed_attribute(PKCS7_SIGNER_INFO *si, int nid);
+__attribute__ ((visibility ("default"))) int PKCS7_set_signed_attributes(PKCS7_SIGNER_INFO *p7si,
                                 STACK_OF(X509_ATTRIBUTE) *sk);
-int PKCS7_set_attributes(PKCS7_SIGNER_INFO *p7si,
+__attribute__ ((visibility ("default"))) int PKCS7_set_attributes(PKCS7_SIGNER_INFO *p7si,
                          STACK_OF(X509_ATTRIBUTE) *sk);
 
-PKCS7 *PKCS7_sign(X509 *signcert, EVP_PKEY *pkey, STACK_OF(X509) *certs,
+__attribute__ ((visibility ("default"))) PKCS7 *PKCS7_sign(X509 *signcert, EVP_PKEY *pkey, STACK_OF(X509) *certs,
                   BIO *data, int flags);
 
-PKCS7_SIGNER_INFO *PKCS7_sign_add_signer(PKCS7 *p7,
+__attribute__ ((visibility ("default"))) PKCS7_SIGNER_INFO *PKCS7_sign_add_signer(PKCS7 *p7,
                                          X509 *signcert, EVP_PKEY *pkey,
                                          const EVP_MD *md, int flags);
 
-int PKCS7_final(PKCS7 *p7, BIO *data, int flags);
-int PKCS7_verify(PKCS7 *p7, STACK_OF(X509) *certs, X509_STORE *store,
+__attribute__ ((visibility ("default"))) int PKCS7_final(PKCS7 *p7, BIO *data, int flags);
+__attribute__ ((visibility ("default"))) int PKCS7_verify(PKCS7 *p7, STACK_OF(X509) *certs, X509_STORE *store,
                  BIO *indata, BIO *out, int flags);
-STACK_OF(X509) *PKCS7_get0_signers(PKCS7 *p7, STACK_OF(X509) *certs,
+__attribute__ ((visibility ("default"))) STACK_OF(X509) *PKCS7_get0_signers(PKCS7 *p7, STACK_OF(X509) *certs,
                                    int flags);
-PKCS7 *PKCS7_encrypt(STACK_OF(X509) *certs, BIO *in, const EVP_CIPHER *cipher,
+__attribute__ ((visibility ("default"))) PKCS7 *PKCS7_encrypt(STACK_OF(X509) *certs, BIO *in, const EVP_CIPHER *cipher,
                      int flags);
-int PKCS7_decrypt(PKCS7 *p7, EVP_PKEY *pkey, X509 *cert, BIO *data,
+__attribute__ ((visibility ("default"))) int PKCS7_decrypt(PKCS7 *p7, EVP_PKEY *pkey, X509 *cert, BIO *data,
                   int flags);
 
-int PKCS7_add_attrib_smimecap(PKCS7_SIGNER_INFO *si,
+__attribute__ ((visibility ("default"))) int PKCS7_add_attrib_smimecap(PKCS7_SIGNER_INFO *si,
                               STACK_OF(X509_ALGOR) *cap);
-STACK_OF(X509_ALGOR) *PKCS7_get_smimecap(PKCS7_SIGNER_INFO *si);
-int PKCS7_simple_smimecap(STACK_OF(X509_ALGOR) *sk, int nid, int arg);
+__attribute__ ((visibility ("default"))) STACK_OF(X509_ALGOR) *PKCS7_get_smimecap(PKCS7_SIGNER_INFO *si);
+__attribute__ ((visibility ("default"))) int PKCS7_simple_smimecap(STACK_OF(X509_ALGOR) *sk, int nid, int arg);
 
-int PKCS7_add_attrib_content_type(PKCS7_SIGNER_INFO *si, ASN1_OBJECT *coid);
-int PKCS7_add0_attrib_signing_time(PKCS7_SIGNER_INFO *si, ASN1_TIME *t);
-int PKCS7_add1_attrib_digest(PKCS7_SIGNER_INFO *si,
+__attribute__ ((visibility ("default"))) int PKCS7_add_attrib_content_type(PKCS7_SIGNER_INFO *si, ASN1_OBJECT *coid);
+__attribute__ ((visibility ("default"))) int PKCS7_add0_attrib_signing_time(PKCS7_SIGNER_INFO *si, ASN1_TIME *t);
+__attribute__ ((visibility ("default"))) int PKCS7_add1_attrib_digest(PKCS7_SIGNER_INFO *si,
                              const unsigned char *md, int mdlen);
 
-int SMIME_write_PKCS7(BIO *bio, PKCS7 *p7, BIO *data, int flags);
-PKCS7 *SMIME_read_PKCS7(BIO *bio, BIO **bcont);
+__attribute__ ((visibility ("default"))) int SMIME_write_PKCS7(BIO *bio, PKCS7 *p7, BIO *data, int flags);
+__attribute__ ((visibility ("default"))) PKCS7 *SMIME_read_PKCS7(BIO *bio, BIO **bcont);
 
-BIO *BIO_new_PKCS7(BIO *out, PKCS7 *p7);
+__attribute__ ((visibility ("default"))) BIO *BIO_new_PKCS7(BIO *out, PKCS7 *p7);
 
 /* BEGIN ERROR CODES */
 /*
  * The following lines are auto generated by the script mkerr.pl. Any changes
  * made after this point may be overwritten when the script is next run.
  */
-void ERR_load_PKCS7_strings(void);
+__attribute__ ((visibility ("default"))) void ERR_load_PKCS7_strings(void);
 
 /* Error codes for the PKCS7 functions. */
 
