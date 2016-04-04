@@ -128,6 +128,7 @@ export CFLAGS+=" -fvisibility=hidden"
   
 RPM_OPT_FLAGS=$(echo $RPM_OPT_FLAGS | sed -s "s/--param=ssp-buffer-size=32//g")
 export RPM_OPT_FLAGS
+export RPM_OPT_FLAGS+=" -fvisibility=hidden"
 
 ./config --test-sanity
 #
