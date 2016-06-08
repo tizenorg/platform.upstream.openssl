@@ -123,8 +123,9 @@ CHANGES=`stat --format="%y" %SOURCE1`
 sed -i -e "s|#define DATE \(.*\).LC_ALL.*date.|#define DATE \1$CHANGES|" crypto/Makefile
 
 %build
-RPM_OPT_FLAGS=$(echo $RPM_OPT_FLAGS | sed -s "s/--param=ssp-buffer-size=32//g")
-export RPM_OPT_FLAGS
+MODIFIED_RPM_OPT_FLAGS=$(echo $RPM_OPT_FLAGS | sed -s "s/--param=ssp-buffer-size=32//g")
+MODIFIED_RPM_OPT_FLAGS=$(echo $MODIFIED_RPM_OPT_FLAGS | sed -s "s/-mcpu=cortex-a15.cortex-a7//g")
+MODIFIED_RPM_OPT_FLAGS=$(echo $MODIFIED_RPM_OPT_FLAGS | sed -s "s/-march=armv7ve/-march=armv7-a/g")
 
 ./config --test-sanity
 #
@@ -134,7 +135,7 @@ zlib \
 --prefix=%{_prefix} \
 --libdir=%{_lib} \
 --openssldir=%{ssletcdir} \
-$RPM_OPT_FLAGS -std=gnu99 \
+$MODIFIED_RPM_OPT_FLAGS -std=gnu99 \
 -Wa,--noexecstack \
 -fomit-frame-pointer \
 -DTERMIO \
